@@ -69,11 +69,12 @@ object Libs {
 	const val lifecycleReactive = "androidx.lifecycle:lifecycle-reactivestreams-ktx:${Versions.lifecycle}"
 	const val archTest = "androidx.arch.core:core-testing:${Versions.androidArch}"
 	const val livedatTest = "com.jraska.livedata:testing-ktx:1.1.0"
+	const val paging = "androidx.paging:paging-runtime:${Versions.paging}"
 
 	//https://developer.android.com/jetpack/androidx/releases/navigation
 	const val navFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.androidxNav}"
 	const val navKtx = "androidx.navigation:navigation-ui-ktx:${Versions.androidxNav}"
-	const val paging = "androidx.paging:paging-runtime:${Versions.paging}"
+	const val fragNav = "com.ncapdevi:frag-nav:${Versions.fragNav}"
 	//https://developer.android.com/guide/navigation/navigation-dynamic
 	const val navDynamicFeature = "androidx.navigation:navigation-dynamic-features-fragment:${Versions.androidxNav}"
 
@@ -94,4 +95,6 @@ object Libs {
 	const val jUnit = "junit:junit:${Versions.junit}"
 	const val androidTextExt = "androidx.test.ext:junit:1.1.1"
 	const val expresso = "androidx.test.espresso:espresso-core:3.2.0"
+
+
 }

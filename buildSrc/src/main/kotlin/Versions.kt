@@ -33,4 +33,7 @@ object Versions {
 	const val playCore = "1.6.5"
 	const val dependencyUpdateChecker = "0.28.0"
 	const val playPublisher = "2.7.2"
+
+	//Utils
+	const val fragNav = "2.4.0"
 }
