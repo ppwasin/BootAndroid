@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Equipment Utilization</string>
     <string name="title_search">Search</string>
+    <string name="title_featurechat">Chat</string>
 </resources>

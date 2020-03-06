@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 		setContentView(R.layout.activity_main)
 		val builder = FragNavController.newBuilder(
 			savedInstanceState,
-			getSupportFragmentManager(),
+			supportFragmentManager,
 			R.id.frame_container
 		)
 		(application as AppDiProvider).featureSyntax.run {

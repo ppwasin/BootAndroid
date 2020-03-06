@@ -3,7 +3,7 @@ plugins {
 	kotlinAndroid()
 	kotlinKapt()
 	kotlinExt()
-	id("com.github.triplet.play") // https://medium.com/androiddevelopers/speed-up-your-android-dynamic-features-flow-testing-d63986cd716a
+	gradlePlay()
 }
 play {
 	serviceAccountCredentials = rootProject.file("release-app.json")
@@ -28,7 +28,7 @@ android {
 		}
 	}
 
-	dynamicFeatures = mutableSetOf(ModuleDependency.FEATURE_SEARCH)
+	dynamicFeatures = mutableSetOf(ModuleDependency.FEATURE_SEARCH, ModuleDependency.FEATURE_CHAT)
 }
 
 dependencies {

@@ -1,0 +1,13 @@
+<manifest xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="com.med.feature.chat">
+
+    <dist:module
+        dist:instant="false"
+        dist:title="@string/title_featurechat">
+        <dist:delivery>
+            <dist:on-demand />
+        </dist:delivery>
+        <dist:fusing dist:include="false" />
+    </dist:module>
+</manifest>
+
