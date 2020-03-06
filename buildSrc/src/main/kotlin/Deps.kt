@@ -96,5 +96,4 @@ object Libs {
 	const val androidTextExt = "androidx.test.ext:junit:1.1.1"
 	const val expresso = "androidx.test.espresso:espresso-core:3.2.0"
 
-
 }

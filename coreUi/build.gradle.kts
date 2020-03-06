@@ -13,7 +13,6 @@ dependencies {
     api(Libs.constraintLayout)
     api(Libs.recyclerView)
     api(Libs.cardView)
-
     api(Libs.viewModel)
     api(Libs.lifecycle)
     api(Libs.liveData)
@@ -23,9 +22,12 @@ dependencies {
     api(Libs.paging)
     api(Libs.room)
     api(Libs.fragmentKtx)
+
     api(Libs.coroutineCore)
     api(Libs.coroutineAndroid)
-    api(Libs.playCore)
+
+	api(Libs.playCore)
+	api(Libs.autoService)
 
     api(Libs.timber)
 }

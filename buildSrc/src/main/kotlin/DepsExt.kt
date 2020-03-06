@@ -93,6 +93,8 @@ fun DependencyHandlerScope.addDagger() {
 	addImplementation("com.google.dagger:dagger-android-support:${Versions.dagger}")
 	addKapt("com.google.dagger:dagger-compiler:${Versions.dagger}")
 	addKapt("com.google.dagger:dagger-android-processor:${Versions.dagger}")
+	addCompileOnly("com.squareup.inject:assisted-inject-annotations-dagger2:${Versions.daggerAssist}")
+	addKapt("com.squareup.inject:assisted-inject-processor-dagger2:${Versions.daggerAssist}")
 
 	addAndroidTestImplementation("com.google.dagger:dagger-android-support:${Versions.dagger}")
 	addKaptAndroidTest("com.google.dagger:dagger-compiler:${Versions.dagger}")
@@ -148,9 +150,6 @@ fun DependencyHandlerScope.addCoreFeatureDeps() {
 
 	addImplementation(Libs.coroutineCore)
 	addImplementation(Libs.coroutineAndroid)
-
-	addCompileOnly(Libs.autoService)
-	addKapt(Libs.autoServiceKapt)
 
 	addImplementation(Libs.playCore)
 }

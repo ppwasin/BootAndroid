@@ -44,4 +44,5 @@ dependencies {
 	implementation(Libs.navDynamicFeature)
 	implementation(Libs.bottomNavigator)
 	implementation(Libs.timber)
+	addDagger()
 }

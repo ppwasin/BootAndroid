@@ -16,5 +16,7 @@ dependencies {
 	implementation(fileTree(mapOf("include" to listOf("*.jar"), "dir" to "libs")))
 	implementation(project(ModuleDependency.APP))
 	implementation(project(ModuleDependency.LIB_CORE_UI))
-//	addCoreFeatureDeps()
+
+	compileOnly(Libs.autoService)
+	kapt(Libs.autoServiceKapt)
 }

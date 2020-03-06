@@ -15,6 +15,7 @@ object Versions {
 	const val androidArch = "2.0.0"
 	const val room = "2.2.4"
 	const val dagger = "2.25.3"
+	const val daggerAssist = "0.5.2"
 	const val retrofit = "2.7.0"
 	const val arrowkt = "0.10.4"
 	const val rxJava = "2.2.18"
