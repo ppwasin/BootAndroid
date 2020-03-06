@@ -15,3 +15,7 @@ fun DependencyHandlerScope.addKapt(notation: String) {
 fun DependencyHandlerScope.addKaptAndroidTest(notation: String) {
 	add("kaptAndroidTest", notation)
 }
+
+fun DependencyHandlerScope.addCompileOnly(notation: String) {
+	add("compileOnly", notation)
+}

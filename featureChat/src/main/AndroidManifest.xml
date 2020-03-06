@@ -3,7 +3,7 @@
 
     <dist:module
         dist:instant="false"
-        dist:title="@string/title_featurechat">
+        dist:title="@string/title_chat">
         <dist:delivery>
             <dist:on-demand />
         </dist:delivery>

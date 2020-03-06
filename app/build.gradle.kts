@@ -34,11 +34,7 @@ android {
 dependencies {
 	implementation(fileTree(mapOf("include" to listOf("*.jar"), "dir" to "libs")))
 	implementation(project(ModuleDependency.LIB_DYNAMIC_FEATURE))
-	implementation(Libs.kotlinStd)
-	implementation(Libs.appCompat)
-	implementation(Libs.fragmentKtx)
-	implementation(Libs.androidKtx)
-	implementation(Libs.constraintLayout)
+	implementation(project(ModuleDependency.LIB_CORE_UI))
 	testImplementation(Libs.jUnit)
 	androidTestImplementation(Libs.androidTextExt)
 	androidTestImplementation(Libs.expresso)
@@ -47,4 +43,5 @@ dependencies {
 	implementation(Libs.rxAndroid)
 	implementation(Libs.navDynamicFeature)
 	implementation(Libs.bottomNavigator)
+	implementation(Libs.timber)
 }

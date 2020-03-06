@@ -125,3 +125,32 @@ fun DependencyHandlerScope.addDate() {
 		"exclude module:"(Libs.jakeThreetenabp)
 	}
 }
+
+
+fun DependencyHandlerScope.addCoreFeatureDeps() {
+	addImplementation(Libs.kotlinStd)
+
+	addImplementation(Libs.appCompat)
+	addImplementation(Libs.constraintLayout)
+	addImplementation(Libs.recyclerView)
+	addImplementation(Libs.cardView)
+
+	addImplementation(Libs.viewModel)
+	addImplementation(Libs.lifecycle)
+	addImplementation(Libs.liveData)
+	addImplementation(Libs.lifecycleProcess)
+	addImplementation(Libs.lifecycleCommon)
+	addImplementation(Libs.lifecycleReactive)
+	addImplementation(Libs.paging)
+	addImplementation(Libs.room)
+	addImplementation(Libs.fragmentKtx)
+	addKapt(Libs.roomKapt)
+
+	addImplementation(Libs.coroutineCore)
+	addImplementation(Libs.coroutineAndroid)
+
+	addCompileOnly(Libs.autoService)
+	addKapt(Libs.autoServiceKapt)
+
+	addImplementation(Libs.playCore)
+}
