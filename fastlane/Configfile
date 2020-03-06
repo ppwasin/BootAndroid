@@ -1,0 +1,10 @@
+@configs = {
+  :slack_release_url => '',
+  :slack_ci_url => '',
+  :internal_testing_url => '',
+  :version_major => '1',
+  :version_minor => '0',
+  :version_code_offset => 1000,
+  :beta_tag_prefix => 'beta',
+  :google_play_tag_prefix => 'google-play'
+}

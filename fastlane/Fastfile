@@ -1,0 +1,151 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+import("./Configfile")
+default_platform(:android)
+def test_message
+    if environment_variable(get: "TRAVIS") == nil then
+        return ""
+    end
+    $branch = environment_variable(get: "TRAVIS_BRANCH")
+    $pr = environment_variable(get: "TRAVIS_PULL_REQUEST_BRANCH")
+    $pr_number = environment_variable(get: "TRAVIS_PULL_REQUEST")
+    $web_url = environment_variable(get: "TRAVIS_BUILD_WEB_URL")
+
+    [
+        $branch,
+        ($pr != "" ? "<< ##{$pr_number} #{$pr}" : ""),
+        $web_url,
+    ].join(' ')
+end
+def get_payload(flavor, aab_upload_url)
+    return case flavor
+        when "live"
+            release_payload = { "Download Link" => aab_upload_url}
+        when "beta"
+            release_payload= { "Download Link" => aab_upload_url, "Dev Configuration" => "This Version `Enable` Development Configuration"}
+        else
+            UI.user_error!("incorect flavor version")
+        end
+end
+def parse_upload_result(input)
+    if input.is_a?(String)
+        result = input
+    elsif input.is_a?(Array)
+        input_lenght = input.length
+        if input_lenght == 1
+            result = input[0]
+        elsif input_lenght == 2
+            result = input[1]
+        else
+            UI.user_error!("Incorrect Upload Result format")
+            result = nil
+        end
+    else
+        UI.user_error!("Incorrect Upload Result format")
+        result = nil
+    end
+
+    puts("upload result: #{input} isArray:#{input.is_a?(Array)} isString:#{input.is_a?(String)} ==> parse result: #{result}")
+    result
+end
+
+platform :android do
+  ###########################################################################################
+    ####################################### Travis ############################################
+    ###########################################################################################
+    desc "Run test"
+    lane :test do
+        begin
+            gradle(task: "testLiveDebugUnitTest")
+            print_slack_ci(msg:"Test Success: #{test_message}", isSuccess:true)
+        rescue => error
+            print_slack_ci(msg:"Test error: #{test_message}", isSuccess:false)
+            UI.user_error!("Test error: #{error}")
+        end
+    end
+
+    
+    #branch sample: 
+    #   - deploy/it
+    #   - deploy/ias/beta
+    #   - deploy/ias/live
+    desc "From Travis branch Deploy to store (GooglePlay)"
+    lane :travis_deploy do
+        branch_name = ENV['BRANCH']
+        schema = get_schema_mapping(branch_name:branch_name)
+        destination = schema[:destination]
+        flavor = schema[:flavor]
+
+        case destination
+        when "it"
+            deploy_internal_test
+        when "ias"
+            deploy_internal_appsharing(branch_name:branch_name, flavor:flavor)        
+        else
+            UI.user_error!("Incorrect destination. Expect `it` (Internal Test) or `ias` (Internal App Sharing), found: #{destination} from #{branch_name}")
+        end
+        
+    end
+
+    desc "Deploy to Google Internal Test"
+    lane :deploy_internal_test do
+        # Build APK
+        version_map = build_new_version_map()
+        version_code = version_map[:version_code]
+        version_name = version_map[:version_name]
+        build_gradle(
+            task:'bundle',
+            flavor:'live',
+            version_code:version_code,
+            version_name:version_name)
+
+        # Upload to internal
+        upload_to_play_store(track: 'internal', skip_upload_apk: true)
+        print_slack_deploy(version:version_name, payload:{ "Download Link" => @configs[:internal_testing_url] }, destination:"Internal Test")        
+    end
+
+    desc "Deploy to Google Internal App Sharing"
+    lane :deploy_internal_appsharing do |options|
+        branch_name = options[:branch_name]
+        flavor = options[:flavor]
+        version_code = count_tag_by_prefix(prefix:"ias/") + 1
+        version_name = git_version_name(version_code:version_code)
+        build_gradle(
+            task:'bundle',
+            flavor:flavor,
+            version_code:version_code,
+            version_name:version_name)
+        
+        #0 Index is APK Path
+        #1 Index is AAB PAth
+        aab_path = lane_context[SharedValues::GRADLE_AAB_OUTPUT_PATH]
+        aab_upload_result = upload_to_play_store_internal_app_sharing(aab:aab_path)
+        aab_upload_url = parse_upload_result(aab_upload_result)
+
+        # set new version by git tag
+        start_with = "ias" << "/gp-" << get_gp_internal_test_version_code.to_s
+        add_tag(start_with:start_with, end_with:version_code)
+        push_to_git_remote(local_branch: "HEAD", remote_branch: branch_name)
+
+        # print slack
+        payload = get_payload(flavor, aab_upload_url)
+        print_slack_deploy(version:version_name, payload:payload, destination:"Internal App Sharing")
+    end
+
+    ###############################################################################################
+    ####################################### End Travis ############################################
+    ###############################################################################################
+end
