@@ -46,5 +46,5 @@ dependencies {
 	implementation(Libs.rxJava)
 	implementation(Libs.rxAndroid)
 	implementation(Libs.navDynamicFeature)
-	implementation(Libs.fragNav)
+	implementation(Libs.bottomNavigator)
 }

@@ -74,7 +74,7 @@ object Libs {
 	//https://developer.android.com/jetpack/androidx/releases/navigation
 	const val navFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.androidxNav}"
 	const val navKtx = "androidx.navigation:navigation-ui-ktx:${Versions.androidxNav}"
-	const val fragNav = "com.ncapdevi:frag-nav:${Versions.fragNav}"
+	const val bottomNavigator = "com.pandora.bottomnavigator:bottom-navigator:${Versions.bottomNavigator}"
 	//https://developer.android.com/guide/navigation/navigation-dynamic
 	const val navDynamicFeature = "androidx.navigation:navigation-dynamic-features-fragment:${Versions.androidxNav}"
 
