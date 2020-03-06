@@ -1,3 +1,3 @@
-include(":app", ":feature_search", "dynamicFeature", ":coreUi")
+include(":app", ":featureSearch", "dynamicFeature", ":coreUi")
 rootProject.name = "Equipment Utilization"
 rootProject.buildFileName = "build.gradle.kts"
