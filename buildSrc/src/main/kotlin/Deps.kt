@@ -86,6 +86,8 @@ object Libs {
 	//Coroutine
 	const val coroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}"
 	const val coroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutine}"
+	const val coroutineRx = "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:${Versions.coroutine}"
+	const val coroutineReactive = "org.jetbrains.kotlinx:kotlinx-coroutines-reactive:${Versions.coroutine}"
 
 	//AutoService
 	const val autoService = "com.google.auto.service:auto-service-annotations:${Versions.autoService}"

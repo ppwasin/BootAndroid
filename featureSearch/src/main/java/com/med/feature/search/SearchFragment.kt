@@ -19,7 +19,7 @@ class SearchFragment : Fragment() {
 		container: ViewGroup?,
 		savedInstanceState: Bundle?
 	): View? {
-		println("SearchFragment")
+		println("SearchFragment print")
 		return inflater.inflate(R.layout.search, container, false)
 	}
 

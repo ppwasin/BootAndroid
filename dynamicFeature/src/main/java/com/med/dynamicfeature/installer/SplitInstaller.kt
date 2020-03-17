@@ -18,7 +18,6 @@ fun SplitInstallerSyntax.isFeatureInstalled(feature: Feature): Boolean {
 }
 
 fun SplitInstallerSyntax.installFeature(moduleName: String): Flowable<SplitInstallSessionState> {
-//	val splitInstallManager = SplitInstallManagerFactory.create(context)
 	return Flowable.create<SplitInstallSessionState>({ emitter ->
 		val listener = SplitInstallStateUpdatedListener(emitter::onNext)
 		val request = SplitInstallRequest.newBuilder()
@@ -48,25 +47,7 @@ fun SplitInstallSessionState.progress(): Int {
 	}
 }
 
-fun InstallDynamicFeatureState.isInstallFinish(): Boolean {
-	return this == InstallDynamicFeatureState.Installed
+
+fun SplitInstallSessionState.isInstalled(): Boolean {
+	return status() == SplitInstallSessionStatus.INSTALLED
 }
-
-fun mapRawSplitInstallState(rawState: SplitInstallSessionState): InstallDynamicFeatureState? {
-	return when (rawState.status()) {
-		SplitInstallSessionStatus.PENDING -> InstallDynamicFeatureState.Initializing
-		SplitInstallSessionStatus.DOWNLOADING -> InstallDynamicFeatureState.Download(rawState.progress())
-		SplitInstallSessionStatus.DOWNLOADED -> InstallDynamicFeatureState.Download(1)
-		SplitInstallSessionStatus.INSTALLING -> InstallDynamicFeatureState.Installing
-		SplitInstallSessionStatus.INSTALLED -> InstallDynamicFeatureState.Installed
-		SplitInstallSessionStatus.FAILED -> InstallDynamicFeatureState.Failed(rawState)
-//		SplitInstallSessionStatus.CANCELING -> callback(InstallDynamicFeatureState.Loading(InstallDynamicFeatureState.MainState.Cancel, state))
-//		SplitInstallSessionStatus.CANCELED -> callback(InstallDynamicFeatureState.Installed(InstallDynamicFeatureState.MainState.Cancel, state))
-//		SplitInstallSessionStatus.UNKNOWN -> callback(InstallDynamicFeatureState.Unknown(state))
-//		SplitInstallSessionStatus.REQUIRES_USER_CONFIRMATION -> callback(InstallDynamicFeatureState.RequireUserConfirmation(state))
-		else -> null
-	}
-
-
-}
-

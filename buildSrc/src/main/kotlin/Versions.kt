@@ -10,7 +10,7 @@ object Versions {
 	const val fragment = "1.2.2"
 	const val activity = "1.1.0"
 	const val paging = "2.1.1"
-	const val androidxNav = "2.3.0-alpha02"
+	const val androidxNav = "2.3.0-alpha03"
 	const val lifecycle = "2.2.0"
 	const val androidArch = "2.0.0"
 	const val room = "2.2.4"
