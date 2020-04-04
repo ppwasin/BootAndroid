@@ -6,7 +6,7 @@ repositories {
 	google()
 }
 object PluginVersions {
-	const val kotlin = "1.3.70"
+	const val kotlin = "1.3.71"
 	const val androidGradle = "3.6.1"
 }
 

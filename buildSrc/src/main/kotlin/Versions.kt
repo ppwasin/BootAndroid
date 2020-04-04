@@ -1,5 +1,5 @@
 object Versions {
-	const val kotlin = "1.3.70"
+	const val kotlin = "1.3.71"
 	const val androidGradle = "3.6.1"
 	const val googleService = "4.3.3"
 	const val fabric = "1.31.0"
@@ -10,7 +10,7 @@ object Versions {
 	const val fragment = "1.2.2"
 	const val activity = "1.1.0"
 	const val paging = "2.1.1"
-	const val androidxNav = "2.3.0-alpha03"
+	const val androidxNav = "2.3.0-alpha04"
 	const val lifecycle = "2.2.0"
 	const val androidArch = "2.0.0"
 	const val room = "2.2.4"
