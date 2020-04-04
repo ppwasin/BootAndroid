@@ -28,7 +28,11 @@ android {
 		}
 	}
 
-	dynamicFeatures = mutableSetOf(ModuleDependency.FEATURE_SEARCH, ModuleDependency.FEATURE_CHAT)
+	dynamicFeatures = mutableSetOf(
+		":features:featureSearch",
+		":features:featureChat",
+		":features:featureEntries"
+	)
 }
 
 dependencies {

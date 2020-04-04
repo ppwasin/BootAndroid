@@ -9,7 +9,7 @@ import com.med.utilization.di.AppModule
 import com.med.utilization.di.DaggerAppComponent
 
 class App : Application(), AppDiProvider {
-	lateinit var appComponent: AppComponent
+	private lateinit var appComponent: AppComponent
 	override fun onCreate() {
 		super.onCreate()
 		initTimberWithCrashlytics(this)
