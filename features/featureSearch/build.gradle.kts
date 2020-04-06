@@ -17,6 +17,5 @@ dependencies {
 	implementation(project(ModuleDependency.APP))
 	implementation(project(ModuleDependency.LIB_CORE_UI))
 
-	compileOnly(Libs.autoService)
-	kapt(Libs.autoServiceKapt)
+	addCoreFeatureDeps()
 }

@@ -137,17 +137,15 @@ fun DependencyHandlerScope.addDate() {
 
 fun DependencyHandlerScope.addCoreFeatureDeps() {
 	addImplementation(Libs.kotlinStd)
-
 	addImplementation(Libs.appCompat)
 	addImplementation(Libs.constraintLayout)
 	addImplementation(Libs.recyclerView)
-	addImplementation(Libs.cardView)
-
 	addImplementation(Libs.viewModel)
 	addImplementation(Libs.lifecycle)
 	addImplementation(Libs.liveData)
 	addImplementation(Libs.lifecycleProcess)
 	addImplementation(Libs.lifecycleCommon)
+
 	addImplementation(Libs.lifecycleReactive)
 	addImplementation(Libs.paging)
 	addImplementation(Libs.room)
@@ -158,4 +156,6 @@ fun DependencyHandlerScope.addCoreFeatureDeps() {
 	addImplementation(Libs.coroutineAndroid)
 
 	addImplementation(Libs.playCore)
+	addCompileOnly(Libs.autoService)
+	addKapt(Libs.autoServiceKapt)
 }
