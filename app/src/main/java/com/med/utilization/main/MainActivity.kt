@@ -11,19 +11,6 @@ import javax.inject.Inject
 import javax.inject.Provider
 
 class MainActivity : AppCompatActivity() {
-	//	private val navigator by lazy {
-//		BottomNavigator.onCreate(
-//			fragmentContainer = R.id.frame_container,
-//			bottomNavigationView = findViewById(R.id.bottomnav_view),
-//			rootFragmentsFactory = mapOf(
-////			R.id.nav_home to { RootFragment1() },
-////			R.id.tab2 to { RootFragment2() },
-////			R.id.tab3 to { RootFragment3() }
-//			),
-//			defaultTab = R.id.nav_home,
-//			activity = this
-//		)
-//	}
 	@Inject
 	lateinit var vmFactoryProvider: Provider<MainViewModel.Factory>
 	private val viewModel: MainViewModel by savedStateViewModelWithProvider {
@@ -47,13 +34,6 @@ class MainActivity : AppCompatActivity() {
 			}
 
 		}
-
-
-//		lifecycleScope.launchWhenCreated {
-//			viewModel.instantiateHomeFragment()
-//				.collect()
-//		}
-
 
 	}
 

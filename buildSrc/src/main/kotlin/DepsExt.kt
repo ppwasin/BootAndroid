@@ -149,8 +149,9 @@ fun DependencyHandlerScope.addCoreFeatureDeps() {
 	addImplementation(Libs.lifecycleReactive)
 	addImplementation(Libs.paging)
 	addImplementation(Libs.room)
-	addImplementation(Libs.fragmentKtx)
+	addImplementation(Libs.roomKtx)
 	addKapt(Libs.roomKapt)
+	addImplementation(Libs.fragmentKtx)
 
 	addImplementation(Libs.coroutineCore)
 	addImplementation(Libs.coroutineAndroid)
@@ -158,4 +159,5 @@ fun DependencyHandlerScope.addCoreFeatureDeps() {
 	addImplementation(Libs.playCore)
 	addCompileOnly(Libs.autoService)
 	addKapt(Libs.autoServiceKapt)
+	addDagger()
 }

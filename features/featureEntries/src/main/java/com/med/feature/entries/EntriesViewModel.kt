@@ -2,9 +2,16 @@ package com.med.feature.entries
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import com.med.utilization.db.EntryDao
+import com.squareup.inject.assisted.Assisted
+import com.squareup.inject.assisted.AssistedInject
 
-class EntriesViewModel : ViewModel() {
+class EntriesViewModel @AssistedInject constructor(
+	private val entryDao: EntryDao,
+	@Assisted private val saveStateHandle: SavedStateHandle
+) : ViewModel() {
 	fun getItems(): LiveData<List<EntryDisplayItem>> {
 		return MutableLiveData(
 			listOf(
@@ -13,5 +20,10 @@ class EntriesViewModel : ViewModel() {
 				EntryDisplayItem(3)
 			)
 		)
+	}
+
+	@AssistedInject.Factory
+	interface Factory {
+		fun create(saveStateHandle: SavedStateHandle): EntriesViewModel
 	}
 }

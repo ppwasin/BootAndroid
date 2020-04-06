@@ -57,5 +57,8 @@ dependencies {
 	implementation(Libs.navKtx)
 	implementation(Libs.bottomNavigator)
 	implementation(Libs.timber)
+	addImplementation(Libs.room)
+	addImplementation(Libs.roomKtx)
+	addKapt(Libs.roomKapt)
 	addDagger()
 }
