@@ -4,6 +4,9 @@ plugins {
 }
 android {
     configureAndroidLib()
+    viewBinding {
+        isEnabled = true
+    }
 }
 
 dependencies {

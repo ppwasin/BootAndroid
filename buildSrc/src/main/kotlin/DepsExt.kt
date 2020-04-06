@@ -51,6 +51,9 @@ fun BaseExtension.configureDFM(extDefaultConfig: DefaultConfig.() -> Unit = {}) 
 	}
 	compileOptions()
 	configureFavor()
+	viewBinding {
+		isEnabled = true
+	}
 }
 
 fun BaseExtension.configureFavor() {
