@@ -4,8 +4,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 
-interface ItemDelegate<VH> : DiffItem,
-	ViewType {
+interface ItemDelegate<VH> : DiffItem, ViewType {
 	fun onCreateViewHolder(parent: ViewGroup): VH
 	fun onBindViewHolder(holder: VH)
 	fun onViewRecycled(holder: VH) = Unit

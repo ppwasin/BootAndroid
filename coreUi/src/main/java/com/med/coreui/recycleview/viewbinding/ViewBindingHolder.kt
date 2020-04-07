@@ -15,3 +15,7 @@ class ViewBindingHolder<out T : ViewBinding>(val binding: T) :
 		creator(LayoutInflater.from(parent.context), parent, false)
 	)
 }
+
+fun <T : ViewBinding> ViewGroup.createViewBindingHolder(
+	creator: (inflater: LayoutInflater, root: ViewGroup, attachToRoot: Boolean) -> T
+) = ViewBindingHolder(this, creator)
