@@ -4,7 +4,9 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.play.core.splitcompat.SplitCompat
 import com.med.coreui.observeNotNull
 import com.med.coreui.recycleview.viewbinding.ViewBindingAdapter
@@ -21,21 +23,18 @@ class EntriesFragment : Fragment(R.layout.entries) {
 	private val viewModel: EntriesViewModel by savedStateViewModelWithProvider {
 		vmFactoryProvider.get().create(it)
 	}
+	private val adapter by lazy { ViewBindingAdapter() }
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 		val binding = EntriesBinding.bind(view)
-		setupRecyclerView(binding)
+		setupRecyclerView(binding.entryRv, viewModel.getItems())
 	}
 
-	private fun setupRecyclerView(binding: EntriesBinding) {
-		val adapter = ViewBindingAdapter()
-		with(binding.entryRv) {
-			this.adapter = adapter
-			layoutManager = LinearLayoutManager(context)
-		}
-
-		viewModel.getItems().observeNotNull(this) {
+	private fun setupRecyclerView(rv: RecyclerView, liveItems: LiveData<List<EntryDisplayItem>>) {
+		rv.adapter = adapter
+		rv.layoutManager = LinearLayoutManager(context)
+		liveItems.observeNotNull(this) {
 			adapter.submitListT(it)
 		}
 	}

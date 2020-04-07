@@ -7,15 +7,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import timber.log.Timber
 
-interface ItemDelegate<VH> : DiffItem, ViewType {
-	fun onCreateViewHolder(parent: ViewGroup): VH
-	fun onBindViewHolder(holder: VH)
-	fun onViewRecycled(holder: VH) = Unit
-
-	fun onViewAttachedToWindow(holder: VH) = Unit
-	fun onViewDetachedFromWindow(holder: VH) = Unit
-}
-
 abstract class ItemDelegateAdapter :
 	ListAdapter<ItemDelegate<RecyclerView.ViewHolder>, RecyclerView.ViewHolder>(
 		AsyncDifferConfig.Builder(DiffUtilCallback<ItemDelegate<RecyclerView.ViewHolder>>()).build()
@@ -23,7 +14,7 @@ abstract class ItemDelegateAdapter :
 	private var items: List<ItemDelegate<RecyclerView.ViewHolder>>? = null
 	private var viewPool: RecyclerView.RecycledViewPool? = null
 
-	protected abstract fun onCreateFallback(
+	protected abstract fun onCreateItemFallback(
 		parent: ViewGroup,
 		viewType: Int
 	): RecyclerView.ViewHolder
@@ -60,7 +51,7 @@ abstract class ItemDelegateAdapter :
 	}
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-		return getItemByViewType(viewType)?.onCreateViewHolder(parent) ?: onCreateFallback(
+		return getItemByViewType(viewType)?.onCreateViewHolder(parent) ?: onCreateItemFallback(
 			parent,
 			viewType
 		)
@@ -98,96 +89,6 @@ abstract class ItemDelegateAdapter :
 	}
 
 	private fun getItemNullable(position: Int): ItemDelegate<RecyclerView.ViewHolder>? {
-		return if (position != NO_POSITION)
-			try {
-				items?.get(position)
-			} catch (ex: Exception) {
-				Timber.v("Items between Adapter and DiffUtils are not synchronized, use DiffUtils item instead")
-				try {
-					getItem(position)
-				} catch (ex: Exception) {
-					Timber.v("Cannot find item at position $position on both Adapter and DiffUtils")
-					null
-				}
-			}
-		else {
-			null
-		}
-	}
-}
-
-class MultiAdapter<VH : RecyclerView.ViewHolder>(
-	private val viewHolderFactory: (parent: ViewGroup, viewType: Int) -> VH
-) : ListAdapter<DisplayItem<VH>, VH>(
-	AsyncDifferConfig.Builder(DiffUtilCallback<DisplayItem<VH>>()).build()
-) {
-	private var items: List<DisplayItem<VH>>? = null
-	private var viewPool: RecyclerView.RecycledViewPool? = null
-
-	override fun submitList(list: List<DisplayItem<VH>>?) {
-		items = list
-		super.submitList(list)
-	}
-
-	override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
-		viewPool = recyclerView.recycledViewPool
-	}
-
-	override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
-		viewPool = null
-	}
-
-	override fun onViewAttachedToWindow(holder: VH) {
-		getItemByHolder(holder)?.onViewAttachedToWindow(holder)
-	}
-
-	override fun onViewDetachedFromWindow(holder: VH) {
-		holder.itemView.clearAnimation()
-		getItemByHolder(holder)?.onViewDetachedFromWindow(holder)
-	}
-
-	override fun getItemViewType(position: Int): Int {
-		return getItem(position).getViewType()
-	}
-
-	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
-		val holder = viewHolderFactory(parent, viewType)
-		getItemByViewType(viewType)?.afterCreateViewHolder(viewPool, holder)
-		return holder
-	}
-
-	private fun getItemByViewType(viewType: Int): DisplayItem<VH>? {
-		return items?.firstOrNull { it.getViewType() == viewType }
-	}
-
-	override fun onBindViewHolder(holder: VH, position: Int) {
-		val item = getItemNullable(position)
-		item?.onBindViewHolder(holder)
-	}
-
-	override fun onBindViewHolder(
-		holder: VH,
-		position: Int,
-		payloads: MutableList<Any>
-	) {
-		if (payloads.isEmpty()) {
-			//blink view (plusOrReplace whole item)
-			super.onBindViewHolder(holder, position, payloads)
-		} else {
-			//not blink view
-			onBindViewHolder(holder, position)
-		}
-	}
-
-	override fun onViewRecycled(holder: VH) {
-		getItemByHolder(holder)?.onViewRecycled(holder)
-	}
-
-	private fun getItemByHolder(holder: VH): DisplayItem<VH>? {
-		return getItemNullable(holder.adapterPosition)
-	}
-
-	private fun getItemNullable(position: Int): DisplayItem<VH>? {
 		return if (position != NO_POSITION)
 			try {
 				items?.get(position)
