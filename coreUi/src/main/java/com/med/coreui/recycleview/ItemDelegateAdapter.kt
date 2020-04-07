@@ -20,7 +20,7 @@ abstract class ItemDelegateAdapter :
 	): RecyclerView.ViewHolder
 
 	@Suppress("UNCHECKED_CAST")
-	fun <T : RecyclerView.ViewHolder> submitListT(list: List<ItemDelegate<T>>?) {
+	fun submitListT(list: List<ItemDelegate<out RecyclerView.ViewHolder>>?) {
 		submitList(list as? List<ItemDelegate<RecyclerView.ViewHolder>>?)
 	}
 

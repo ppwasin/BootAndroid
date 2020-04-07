@@ -4,11 +4,11 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.play.core.splitcompat.SplitCompat
 import com.med.coreui.observeNotNull
+import com.med.coreui.recycleview.LiveItems
 import com.med.coreui.recycleview.viewbinding.ViewBindingAdapter
 import com.med.coreui.savedStateViewModelWithProvider
 import com.med.feature.entries.databinding.EntriesBinding
@@ -31,7 +31,7 @@ class EntriesFragment : Fragment(R.layout.entries) {
 		setupRecyclerView(binding.entryRv, viewModel.getItems())
 	}
 
-	private fun setupRecyclerView(rv: RecyclerView, liveItems: LiveData<List<EntryDisplayItem>>) {
+	private fun setupRecyclerView(rv: RecyclerView, liveItems: LiveItems) {
 		rv.adapter = adapter
 		rv.layoutManager = LinearLayoutManager(context)
 		liveItems.observeNotNull(this) {
