@@ -1,5 +1,5 @@
 object Versions {
-	const val kotlin = "1.3.71"
+	const val kotlin = "1.3.72"
 	const val androidGradle = "3.6.1"
 	const val googleService = "4.3.3"
 	const val fabric = "1.31.0"

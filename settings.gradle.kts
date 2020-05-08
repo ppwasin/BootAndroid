@@ -6,5 +6,5 @@ include(
 	":features:featureChat",
 	":features:featureEntries"
 )
-rootProject.name = "Equipment Utilization"
+rootProject.name = "BootAndroid"
 rootProject.buildFileName = "build.gradle.kts"

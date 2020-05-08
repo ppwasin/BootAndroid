@@ -38,8 +38,8 @@ object Libs {
 	const val moshiAdapter = "com.squareup.moshi:moshi-adapters:${Versions.moshi}"
 
 	//Date
-	const val jakeThreetenabp = "com.jakewharton.threetenabp:threetenabp:1.2.1"
-	const val threetenabp = "org.threeten:threetenbp:1.2.1"
+	const val jakeThreetenabp = "com.jakewharton.threetenabp:threetenabp:1.2.4"
+//	const val threetenabp = "org.threeten:threetenbp:1.2.1"
 
 	//Debug
 	const val timber = "com.jakewharton.timber:timber:${Versions.timber}"

@@ -60,5 +60,6 @@ dependencies {
 	addImplementation(Libs.room)
 	addImplementation(Libs.roomKtx)
 	addKapt(Libs.roomKapt)
+	addDate()
 	addDagger()
 }

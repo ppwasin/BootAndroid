@@ -4,20 +4,19 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.med.coreui.recycleview.LiveItems
-import com.med.utilization.db.EntryDao
 import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
 
 class EntriesViewModel @AssistedInject constructor(
-	private val entryDao: EntryDao,
+	private val entryRepo: EntryRepository,
 	@Assisted private val saveStateHandle: SavedStateHandle
 ) : ViewModel() {
 	fun getItems(): LiveItems {
 		return MutableLiveData(
 			listOf(
-				EntryDisplayItem(1),
-				EntryDisplayItem(2),
-				EntryDisplayItem(3)
+				TextEntryDisplayItem(1, "Title", "Subtitle"),
+				TextEntryDisplayItem(2, "Title", "Subtitle"),
+				TextEntryDisplayItem(3, "Title", "Subtitle")
 			)
 		)
 	}

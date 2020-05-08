@@ -129,9 +129,9 @@ fun DependencyHandlerScope.addDate() {
 //	testImplementation('org.threeten:threetenbp:1.2.1') {
 //		exclude module: 'com.jakewharton.threetenabp:threetenabp:1.2.1'
 //	}
-	"testImplementation"(Libs.threetenabp) {
-		"exclude module:"(Libs.jakeThreetenabp)
-	}
+//	"testImplementation"(Libs.threetenabp) {
+//		"exclude module:"(Libs.jakeThreetenabp)
+//	}
 }
 
 
