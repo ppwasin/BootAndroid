@@ -18,4 +18,5 @@ dependencies {
 	implementation(project(ModuleDependency.LIB_CORE_UI))
 
 	addCoreFeatureDeps()
+	addNetwork()
 }

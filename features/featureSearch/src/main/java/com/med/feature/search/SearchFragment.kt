@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.play.core.splitcompat.SplitCompat
 import com.med.coreui.viewModelWithFactory
+import kotlinx.android.synthetic.main.search.*
 
 class SearchFragment : Fragment() {
 	private val viewModel by viewModelWithFactory {
@@ -19,8 +20,12 @@ class SearchFragment : Fragment() {
 		container: ViewGroup?,
 		savedInstanceState: Bundle?
 	): View? {
-		println("SearchFragment print")
 		return inflater.inflate(R.layout.search, container, false)
+	}
+
+	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+		super.onViewCreated(view, savedInstanceState)
+		root_searh.transitionToEnd()
 	}
 
 	override fun onAttach(context: Context) {

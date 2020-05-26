@@ -8,7 +8,7 @@
         android:name="com.med.feature.entries.EntriesFragment"
         app:moduleName="featureEntries" />
     <fragment
-        android:id="@+id/nav_sarch"
+        android:id="@+id/nav_search"
         android:name="com.med.feature.search.SearchFragment"
         app:moduleName="featureSearch" />
     <fragment

@@ -113,6 +113,8 @@ fun DependencyHandlerScope.addNetwork() {
 	addImplementation("com.squareup.moshi:moshi:1.8.0")
 	addImplementation("com.squareup.moshi:moshi-kotlin:1.6.0")
 	addImplementation("com.squareup.okhttp3:logging-interceptor:4.2.1")
+	addImplementation("com.facebook.stetho:stetho:${Versions.stetho}")
+	addImplementation("com.facebook.stetho:stetho-okhttp3:${Versions.stetho}")
 }
 
 fun DependencyHandlerScope.addStetho() {

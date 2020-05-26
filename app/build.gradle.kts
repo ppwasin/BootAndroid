@@ -62,4 +62,5 @@ dependencies {
 	addKapt(Libs.roomKapt)
 	addDate()
 	addDagger()
+	addNetwork()
 }
