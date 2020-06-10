@@ -38,8 +38,8 @@ object Libs {
 	const val moshiAdapter = "com.squareup.moshi:moshi-adapters:${Versions.moshi}"
 
 	//Date
-	const val jakeThreetenabp = "com.jakewharton.threetenabp:threetenabp:1.2.1"
-	const val threetenabp = "org.threeten:threetenbp:1.2.1"
+	const val jakeThreetenabp = "com.jakewharton.threetenabp:threetenabp:1.2.4"
+//	const val threetenabp = "org.threeten:threetenbp:1.2.1"
 
 	//Debug
 	const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
@@ -86,6 +86,8 @@ object Libs {
 	//Coroutine
 	const val coroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}"
 	const val coroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutine}"
+	const val coroutineRx = "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:${Versions.coroutine}"
+	const val coroutineReactive = "org.jetbrains.kotlinx:kotlinx-coroutines-reactive:${Versions.coroutine}"
 
 	//AutoService
 	const val autoService = "com.google.auto.service:auto-service-annotations:${Versions.autoService}"
@@ -95,6 +97,5 @@ object Libs {
 	const val jUnit = "junit:junit:${Versions.junit}"
 	const val androidTextExt = "androidx.test.ext:junit:1.1.1"
 	const val expresso = "androidx.test.espresso:espresso-core:3.2.0"
-
 
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav_graph.xml"
+    app:startDestination="@id/nav_home">
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.med.feature.entries.EntriesFragment"
+        app:moduleName="featureEntries" />
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="com.med.feature.search.SearchFragment"
+        app:moduleName="featureSearch" />
+    <fragment
+        android:id="@+id/nav_chat"
+        android:name="com.med.feature.search.SearchFragment"
+        app:moduleName="featureSearch" />
+</navigation>

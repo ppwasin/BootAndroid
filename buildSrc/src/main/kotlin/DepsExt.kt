@@ -18,6 +18,9 @@ fun BaseExtension.configureApp(extDefaultConfig: DefaultConfig.() -> Unit = {}) 
 	}
 	compileOptions()
 	configureFavor()
+	viewBinding {
+		isEnabled = true
+	}
 }
 
 fun BaseExtension.configureAndroidLib(extDefaultConfig: DefaultConfig.() -> Unit = {}) {
@@ -48,6 +51,9 @@ fun BaseExtension.configureDFM(extDefaultConfig: DefaultConfig.() -> Unit = {}) 
 	}
 	compileOptions()
 	configureFavor()
+	viewBinding {
+		isEnabled = true
+	}
 }
 
 fun BaseExtension.configureFavor() {
@@ -93,6 +99,8 @@ fun DependencyHandlerScope.addDagger() {
 	addImplementation("com.google.dagger:dagger-android-support:${Versions.dagger}")
 	addKapt("com.google.dagger:dagger-compiler:${Versions.dagger}")
 	addKapt("com.google.dagger:dagger-android-processor:${Versions.dagger}")
+	addCompileOnly("com.squareup.inject:assisted-inject-annotations-dagger2:${Versions.daggerAssist}")
+	addKapt("com.squareup.inject:assisted-inject-processor-dagger2:${Versions.daggerAssist}")
 
 	addAndroidTestImplementation("com.google.dagger:dagger-android-support:${Versions.dagger}")
 	addKaptAndroidTest("com.google.dagger:dagger-compiler:${Versions.dagger}")
@@ -105,6 +113,8 @@ fun DependencyHandlerScope.addNetwork() {
 	addImplementation("com.squareup.moshi:moshi:1.8.0")
 	addImplementation("com.squareup.moshi:moshi-kotlin:1.6.0")
 	addImplementation("com.squareup.okhttp3:logging-interceptor:4.2.1")
+	addImplementation("com.facebook.stetho:stetho:${Versions.stetho}")
+	addImplementation("com.facebook.stetho:stetho-okhttp3:${Versions.stetho}")
 }
 
 fun DependencyHandlerScope.addStetho() {
@@ -121,36 +131,35 @@ fun DependencyHandlerScope.addDate() {
 //	testImplementation('org.threeten:threetenbp:1.2.1') {
 //		exclude module: 'com.jakewharton.threetenabp:threetenabp:1.2.1'
 //	}
-	"testImplementation"(Libs.threetenabp) {
-		"exclude module:"(Libs.jakeThreetenabp)
-	}
+//	"testImplementation"(Libs.threetenabp) {
+//		"exclude module:"(Libs.jakeThreetenabp)
+//	}
 }
 
 
 fun DependencyHandlerScope.addCoreFeatureDeps() {
 	addImplementation(Libs.kotlinStd)
-
 	addImplementation(Libs.appCompat)
 	addImplementation(Libs.constraintLayout)
 	addImplementation(Libs.recyclerView)
-	addImplementation(Libs.cardView)
-
 	addImplementation(Libs.viewModel)
 	addImplementation(Libs.lifecycle)
 	addImplementation(Libs.liveData)
 	addImplementation(Libs.lifecycleProcess)
 	addImplementation(Libs.lifecycleCommon)
+
 	addImplementation(Libs.lifecycleReactive)
 	addImplementation(Libs.paging)
 	addImplementation(Libs.room)
-	addImplementation(Libs.fragmentKtx)
+	addImplementation(Libs.roomKtx)
 	addKapt(Libs.roomKapt)
+	addImplementation(Libs.fragmentKtx)
 
 	addImplementation(Libs.coroutineCore)
 	addImplementation(Libs.coroutineAndroid)
 
+	addImplementation(Libs.playCore)
 	addCompileOnly(Libs.autoService)
 	addKapt(Libs.autoServiceKapt)
-
-	addImplementation(Libs.playCore)
+	addDagger()
 }

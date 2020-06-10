@@ -4,28 +4,33 @@ plugins {
 }
 android {
     configureAndroidLib()
+    viewBinding {
+        isEnabled = true
+    }
 }
 
 dependencies {
     implementation(fileTree(mapOf("include" to listOf("*.jar"), "dir" to "libs")))
-    api(Libs.kotlinStd)
-    api(Libs.appCompat)
-    api(Libs.constraintLayout)
-    api(Libs.recyclerView)
-    api(Libs.cardView)
+    implementation(Libs.kotlinStd)
+    implementation(Libs.appCompat)
+    implementation(Libs.constraintLayout)
+    implementation(Libs.recyclerView)
+    implementation(Libs.cardView)
+    implementation(Libs.viewModel)
+    implementation(Libs.lifecycle)
+    implementation(Libs.liveData)
+    implementation(Libs.lifecycleProcess)
+    implementation(Libs.lifecycleCommon)
+    implementation(Libs.lifecycleReactive)
+    implementation(Libs.paging)
+    implementation(Libs.room)
+    implementation(Libs.fragmentKtx)
 
-    api(Libs.viewModel)
-    api(Libs.lifecycle)
-    api(Libs.liveData)
-    api(Libs.lifecycleProcess)
-    api(Libs.lifecycleCommon)
-    api(Libs.lifecycleReactive)
-    api(Libs.paging)
-    api(Libs.room)
-    api(Libs.fragmentKtx)
-    api(Libs.coroutineCore)
-    api(Libs.coroutineAndroid)
-    api(Libs.playCore)
+    implementation(Libs.coroutineCore)
+    implementation(Libs.coroutineAndroid)
 
-    api(Libs.timber)
+    implementation(Libs.playCore)
+    implementation(Libs.autoService)
+
+    implementation(Libs.timber)
 }

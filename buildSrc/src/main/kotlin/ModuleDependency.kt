@@ -8,8 +8,8 @@ object ModuleDependency {
 	const val APP = ":app"
 	const val LIB_DYNAMIC_FEATURE = ":dynamicFeature"
 	const val LIB_CORE_UI = ":coreUi"
-	const val FEATURE_SEARCH = ":featureSearch"
-	const val FEATURE_CHAT = ":featureChat"
+	const val FEATURE_SEARCH = ":features:featureSearch"
+	const val FEATURE_CHAT = ":features:featureChat"
 
 //	// False positive" function can be private"
 //	// See: https://youtrack.jetbrains.com/issue/KT-33610

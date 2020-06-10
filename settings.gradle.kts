@@ -1,3 +1,10 @@
-include(":app", "dynamicFeature", ":coreUi", ":featureSearch", ":featureChat")
-rootProject.name = "Equipment Utilization"
+include(
+	":app",
+	"dynamicFeature",
+	":coreUi",
+	":features:featureSearch",
+	":features:featureChat",
+	":features:featureEntries"
+)
+rootProject.name = "BootAndroid"
 rootProject.buildFileName = "build.gradle.kts"

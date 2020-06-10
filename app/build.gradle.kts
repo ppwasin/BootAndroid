@@ -28,7 +28,11 @@ android {
 		}
 	}
 
-	dynamicFeatures = mutableSetOf(ModuleDependency.FEATURE_SEARCH, ModuleDependency.FEATURE_CHAT)
+	dynamicFeatures = mutableSetOf(
+		":features:featureSearch",
+		":features:featureChat",
+		":features:featureEntries"
+	)
 }
 
 dependencies {
@@ -38,10 +42,25 @@ dependencies {
 	testImplementation(Libs.jUnit)
 	androidTestImplementation(Libs.androidTextExt)
 	androidTestImplementation(Libs.expresso)
+	implementation(Libs.kotlinStd)
+	implementation(Libs.appCompat)
+	implementation(Libs.constraintLayout)
 	implementation(Libs.playCore)
 	implementation(Libs.rxJava)
 	implementation(Libs.rxAndroid)
+	implementation(Libs.coroutineCore)
+	implementation(Libs.coroutineAndroid)
+	implementation(Libs.coroutineRx)
+	implementation(Libs.coroutineReactive)
 	implementation(Libs.navDynamicFeature)
+	implementation(Libs.navFragment)
+	implementation(Libs.navKtx)
 	implementation(Libs.bottomNavigator)
 	implementation(Libs.timber)
+	addImplementation(Libs.room)
+	addImplementation(Libs.roomKtx)
+	addKapt(Libs.roomKapt)
+	addDate()
+	addDagger()
+	addNetwork()
 }
