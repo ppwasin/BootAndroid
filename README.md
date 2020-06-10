@@ -2,6 +2,7 @@
 
 # TODO
 - rename root package to be more generic: from com.med to com.playground
+- better readme for CI/CD, Architecture
 
 # Tech stack
 - Dynamic Feature Module
