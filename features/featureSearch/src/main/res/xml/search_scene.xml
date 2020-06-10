@@ -10,19 +10,43 @@
             motion:dragDirection="dragRight"
             motion:touchAnchorId="@+id/button"
             motion:touchAnchorSide="right" />
-        <OnClick />
         <OnClick motion:targetId="@+id/button" />
+        <KeyFrameSet>
+
+            <KeyPosition
+                motion:framePosition="80"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@+id/button"
+                motion:percentX="0.975"
+                motion:percentY="0.137" />
+            <KeyPosition
+                motion:framePosition="20"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@+id/button"
+                motion:percentX="0.019"
+                motion:percentY="0.048" />
+            <KeyAttribute
+                android:rotation="-45"
+                android:scaleX="2"
+                android:scaleY="2"
+                motion:framePosition="50"
+                motion:motionTarget="@id/button" />
+        </KeyFrameSet>
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
-        <Constraint
-            android:id="@+id/button"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginStart="8dp"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint android:id="@id/button">
+            <Transform android:rotation="180" />
+            <Motion motion:transitionEasing="decelerate" />
+            <PropertySet android:alpha="1" />
+            <Layout
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="8dp"
+                motion:layout_constraintBottom_toBottomOf="parent"
+                motion:layout_constraintStart_toStartOf="parent"
+                motion:layout_constraintTop_toTopOf="parent" />
+        </Constraint>
         <Constraint
             android:id="@+id/button2"
             android:layout_width="wrap_content"
@@ -48,12 +72,12 @@
             android:id="@+id/button"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginRight="100dp"
+            android:layout_marginEnd="92dp"
+            android:layout_marginRight="92dp"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintTop_toTopOf="parent"
-            motion:layout_constraintVertical_bias="0.827" />
+            motion:layout_constraintVertical_bias="0.851" />
         <Constraint
             android:id="@+id/button2"
             android:layout_width="wrap_content"
