@@ -80,15 +80,16 @@ fun BaseExtension.compileOptions() {
 fun DefaultConfig.addRoomConfig(projectDir: File) {
 	javaCompileOptions {
 		annotationProcessorOptions {
-			arguments = mapOf(
-				"room.schemaLocation" to "$projectDir/schemas",
-				"room.incremental" to "true",
-				"room.expandProjection" to "true"
+			arguments.plusAssign(
+				mapOf(
+					"room.schemaLocation" to "$projectDir/schemas",
+					"room.incremental" to "true",
+					"room.expandProjection" to "true"
+				)
 			)
 		}
 	}
 }
-
 
 fun DependencyHandlerScope.addsRxDependencies() {
 	addImplementation(Libs.rxJava)
@@ -110,9 +111,9 @@ fun DependencyHandlerScope.addDagger() {
 fun DependencyHandlerScope.addNetwork() {
 	addImplementation("com.squareup.retrofit2:retrofit:${Versions.retrofit}")
 	addImplementation("com.squareup.retrofit2:converter-moshi:${Versions.retrofit}")
-	addImplementation("com.squareup.moshi:moshi:1.8.0")
-	addImplementation("com.squareup.moshi:moshi-kotlin:1.6.0")
-	addImplementation("com.squareup.okhttp3:logging-interceptor:4.2.1")
+	addImplementation("com.squareup.moshi:moshi:${Versions.moshi}")
+	addImplementation("com.squareup.moshi:moshi-kotlin:${Versions.moshi}")
+	addImplementation("com.squareup.okhttp3:logging-interceptor:4.8.0")
 	addImplementation("com.facebook.stetho:stetho:${Versions.stetho}")
 	addImplementation("com.facebook.stetho:stetho-okhttp3:${Versions.stetho}")
 }
@@ -162,4 +163,21 @@ fun DependencyHandlerScope.addCoreFeatureDeps() {
 	addCompileOnly(Libs.autoService)
 	addKapt(Libs.autoServiceKapt)
 	addDagger()
+}
+
+//fun BaseExtension.addCompose() {
+//	buildFeatures {
+//		compose true
+//	}
+//
+//	composeOptions {
+//		kotlinCompilerVersion "1.4.0-RC"
+//		kotlinCompilerExtensionVersion "0.1.0-dev16"
+//	}
+//}
+
+fun DependencyHandlerScope.addComposeFeature() {
+	val version = "0.1.0-dev16"
+	addImplementation("androidx.ui:ui-tooling:$version")
+	addImplementation("androidx.ui:ui-test:$version")
 }
