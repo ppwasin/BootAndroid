@@ -14,7 +14,6 @@ buildscript {
 		classpath(BuildPlugins.kotlinGradlePlugin)
 		DependenciesVersionChecker.addClassPath(this)
 		classpath(BuildPlugins.playPublisher)
-
 	}
 }
 

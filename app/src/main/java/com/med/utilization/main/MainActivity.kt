@@ -2,11 +2,10 @@ package com.med.utilization.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.ui.setupWithNavController
 import com.med.coreui.savedStateViewModelWithProvider
+import com.med.utilization.R
 import com.med.utilization.databinding.ActivityMainBinding
 import com.med.utilization.di.getAppComponent
-import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -28,9 +27,11 @@ class MainActivity : AppCompatActivity() {
 		with(binding) {
 			val navController = frameContentMain.getNavCtrl(this@MainActivity)
 			if (savedInstanceState == null && navController != null) {
-				Timber.v("test")
-				btmNavMain.setupWithNavController(navController)
-//				btmNavMain.itemIconTintList = null //Can't set on XML because it's not working on the API >= 26
+//				btmNavMain.setupWithNavController(navController)
+////				btmNavMain.itemIconTintList = null //Can't set on XML because it's not working on the API >= 26
+
+				navController.navigate(R.id.nav_entrypoint)
+
 			}
 
 		}

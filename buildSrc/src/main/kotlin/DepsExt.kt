@@ -80,13 +80,14 @@ fun BaseExtension.compileOptions() {
 fun DefaultConfig.addRoomConfig(projectDir: File) {
 	javaCompileOptions {
 		annotationProcessorOptions {
-			arguments.plusAssign(
-				mapOf(
-					"room.schemaLocation" to "$projectDir/schemas",
-					"room.incremental" to "true",
-					"room.expandProjection" to "true"
-				)
-			)
+			argument("room.incremental", "true")
+//			arguments.plusAssign(
+//				mapOf(
+//					"room.schemaLocation" to "$projectDir/schemas",
+//					"room.incremental" to "true",
+//					"room.expandProjection" to "true"
+//				)
+//			)
 		}
 	}
 }

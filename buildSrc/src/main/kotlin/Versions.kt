@@ -1,14 +1,17 @@
 object Versions {
-	const val kotlin = "1.3.72"
-	const val androidGradle = "4.0.1"
+	const val kotlin = "1.4.0-rc"
+	const val androidGradle = "4.2.0-alpha07"
 	const val googleService = "4.3.3"
 	const val fabric = "1.31.0"
-	const val appCompat = "1.1.0"
+
+	//Alpha for propagate ViewTreeLifecycleOwner from main to dynamic feature (Compose)
+	const val appCompat = "1.3.0-alpha01"
+	const val activity = "1.2.0-alpha07"
+	const val fragment = "1.3.0-alpha07"
+
 	const val materialUi = "1.2.0"
 	const val coreKtx = "1.2.0"
 	const val constraintlayout = "2.0.0-rc1"
-	const val fragment = "1.2.5"
-	const val activity = "1.1.0"
 	const val paging = "2.1.2"
 	const val androidxNav = "2.3.0"
 	const val lifecycle = "2.2.0"
@@ -37,4 +40,6 @@ object Versions {
 
 	//Utils
 	const val bottomNavigator = "1.6"
+
+	const val compose = "0.1.0-dev16"
 }

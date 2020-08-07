@@ -13,6 +13,10 @@
         app:moduleName="featureSearch" />
     <fragment
         android:id="@+id/nav_chat"
-        android:name="com.med.feature.search.SearchFragment"
-        app:moduleName="featureSearch" />
+        android:name="com.boot.entrypoint.EntryFragment"
+        app:moduleName="entrypoint" />
+    <activity
+        android:id="@+id/nav_entrypoint"
+        android:name="com.boot.entrypoint.EntryActivity"
+        app:moduleName="entrypoint" />
 </navigation>

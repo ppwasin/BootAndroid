@@ -4,8 +4,11 @@ plugins {
 }
 android {
     configureAndroidLib()
-    viewBinding {
-        isEnabled = true
+//    viewBinding {
+//        isEnabled = true
+//    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 

@@ -31,7 +31,8 @@ android {
 	dynamicFeatures = mutableSetOf(
 		":features:featureSearch",
 		":features:featureChat",
-		":features:featureEntries"
+		":features:featureEntries",
+		":features:entrypoint"
 	)
 }
 
@@ -43,8 +44,6 @@ dependencies {
 	androidTestImplementation(Libs.androidTextExt)
 	androidTestImplementation(Libs.expresso)
 	implementation(Libs.kotlinStd)
-	implementation(Libs.appCompat)
-	implementation(Libs.constraintLayout)
 	implementation(Libs.playCore)
 	implementation(Libs.rxJava)
 	implementation(Libs.rxAndroid)
@@ -52,10 +51,7 @@ dependencies {
 	implementation(Libs.coroutineAndroid)
 	implementation(Libs.coroutineRx)
 	implementation(Libs.coroutineReactive)
-	implementation(Libs.navDynamicFeature)
-	implementation(Libs.navFragment)
-	implementation(Libs.navKtx)
-	implementation(Libs.bottomNavigator)
+	
 	implementation(Libs.timber)
 	addImplementation(Libs.room)
 	addImplementation(Libs.roomKtx)
@@ -63,4 +59,18 @@ dependencies {
 	addDate()
 	addDagger()
 	addNetwork()
+
+	implementation(Libs.appCompat)
+	implementation(Libs.constraintLayout)
+	implementation(Libs.activityKtx)
+	implementation(Libs.viewModel)
+	implementation(Libs.lifecycle)
+	implementation(Libs.liveData)
+	implementation(Libs.lifecycleProcess)
+	implementation(Libs.lifecycleCommon)
+	implementation(Libs.bottomNavigator)
+
+	implementation(Libs.navDynamicFeature)
+	implementation(Libs.navFragment)
+	implementation(Libs.navKtx)
 }
