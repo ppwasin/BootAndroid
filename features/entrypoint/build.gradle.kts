@@ -55,7 +55,15 @@ dependencies {
 //	implementation(Libs.liveData)
 //	implementation(Libs.lifecycleProcess)
 //	implementation(Libs.lifecycleCommon)
-	addCoreFeatureDeps()
+//	addCoreFeatureDeps()
+
+	implementation(Libs.kotlinStd)
+	implementation(Libs.coroutineCore)
+	implementation(Libs.coroutineAndroid)
+	implementation(Libs.appCompat)
+	implementation(Libs.googleMaterial)
+	addImplementation(Libs.playCore)
+
 
 	implementation("androidx.compose.animation:animation:${Versions.compose}")
 	implementation("androidx.compose.foundation:foundation:${Versions.compose}")

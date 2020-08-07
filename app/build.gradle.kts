@@ -51,7 +51,7 @@ dependencies {
 	implementation(Libs.coroutineAndroid)
 	implementation(Libs.coroutineRx)
 	implementation(Libs.coroutineReactive)
-	
+
 	implementation(Libs.timber)
 	addImplementation(Libs.room)
 	addImplementation(Libs.roomKtx)
@@ -62,15 +62,18 @@ dependencies {
 
 	implementation(Libs.appCompat)
 	implementation(Libs.constraintLayout)
-	implementation(Libs.activityKtx)
-	implementation(Libs.viewModel)
-	implementation(Libs.lifecycle)
-	implementation(Libs.liveData)
-	implementation(Libs.lifecycleProcess)
-	implementation(Libs.lifecycleCommon)
-	implementation(Libs.bottomNavigator)
-
+//	implementation(Libs.activityKtx)
+//	implementation(Libs.viewModel)
+//	implementation(Libs.lifecycle)
+//	implementation(Libs.liveData)
+//	implementation(Libs.lifecycleProcess)
+//	implementation(Libs.lifecycleCommon)
+//	implementation(Libs.bottomNavigator)
+//
 	implementation(Libs.navDynamicFeature)
 	implementation(Libs.navFragment)
 	implementation(Libs.navKtx)
+
+
+	implementation(Libs.googleMaterial)
 }
