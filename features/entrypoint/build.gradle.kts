@@ -15,21 +15,15 @@ android {
 		kotlinCompilerVersion = Versions.kotlin
 		kotlinCompilerExtensionVersion = Versions.compose
 	}
-	packagingOptions {
-		exclude("META-INF/atomicfu.kotlin_module")
-	}
 
-	aaptOptions {
-		noCompress("filamat", "ktx", "glb")
-	}
-}
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 	kotlinOptions {
 		jvmTarget = JavaVersion.VERSION_1_8.toString()
-		freeCompilerArgs = listOf(
+		freeCompilerArgs = freeCompilerArgs + listOf(
 			"-Xallow-jvm-ir-dependencies",
 			"-Xskip-prerelease-check",
-			"-Xskip-metadata-version-check"
+			"-Xopt-in=kotlin.RequiresOptIn",
+			"-Xopt-in=kotlin.OptIn",
+			"-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi"
 		)
 	}
 }
@@ -57,6 +51,7 @@ dependencies {
 //	implementation(Libs.lifecycleCommon)
 //	addCoreFeatureDeps()
 
+	implementation(Libs.timber)
 	implementation(Libs.kotlinStd)
 	implementation(Libs.coroutineCore)
 	implementation(Libs.coroutineAndroid)
@@ -71,7 +66,8 @@ dependencies {
 	implementation("androidx.compose.material:material:${Versions.compose}")
 	implementation("androidx.compose.material:material-icons-extended:${Versions.compose}")
 	implementation("androidx.compose.runtime:runtime:${Versions.compose}")
-	implementation("androidx.compose.runtime:runtime-livedata:${Versions.compose}")
 	implementation("androidx.compose.ui:ui:${Versions.compose}")
 	implementation("androidx.ui:ui-tooling:${Versions.compose}")
+	implementation("com.github.zsoltk:compose-router:0.16.0")
+
 }
