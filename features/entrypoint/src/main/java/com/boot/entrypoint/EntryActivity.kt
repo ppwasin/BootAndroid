@@ -4,9 +4,11 @@ import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Box
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.ConstraintLayout
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.Button
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
@@ -50,6 +52,8 @@ class EntryActivity : AppCompatActivity() {
 						Router(MainScreen.Page1) { backStack ->
 							val screen = backStack.last()
 							val setScreen = backStack::push
+							val (count, setCount) = remember { mutableStateOf(0) }
+							val scrollState: ScrollState = rememberScrollState(0f)
 
 							Scaffold(
 								topBar = { AppTopbar(screen) },
@@ -58,8 +62,8 @@ class EntryActivity : AppCompatActivity() {
 								Box(modifier = Modifier.padding(innerPadding)) {
 									when (screen) {
 										MainScreen.Page1 -> BooksScreen(books = Book.mock)
-										MainScreen.Page2 -> News.Content()
-										MainScreen.Page3 -> Greeting(name = "3")
+										MainScreen.Page2 -> News.Content(scrollState)
+										MainScreen.Page3 -> Greeting(name = "3", count, setCount)
 									}
 								}
 							}
@@ -87,8 +91,7 @@ class EntryActivity : AppCompatActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-	val count = remember { mutableStateOf(0) }
+fun Greeting(name: String, count: Int, setCount: (Int) -> Unit) {
 	ConstraintLayout(modifier = Modifier.padding(8.dp)) {
 		val (text, button) = createRefs()
 		val buttonConstraint = Modifier.constrainAs(button) {
@@ -99,14 +102,14 @@ fun Greeting(name: String) {
 		}
 
 		Button(
-			onClick = { count.value++ },
+			onClick = { setCount(count + 1) },
 			modifier = buttonConstraint
 		) {
 			Text("count up")
 		}
 
 		Text(
-			text = "Hello $name! ${count.value}",
+			text = "Hello $name! $count",
 			modifier = textConstraint
 		)
 	}
@@ -116,6 +119,6 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
 	BootAndroidTheme {
-		Greeting("Android")
+		Greeting("Android", 0) {}
 	}
 }
