@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Box
-import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.ConstraintLayout
 import androidx.compose.foundation.layout.padding
@@ -53,7 +52,7 @@ class EntryActivity : AppCompatActivity() {
 							val screen = backStack.last()
 							val setScreen = backStack::push
 							val (count, setCount) = remember { mutableStateOf(0) }
-							val scrollState: ScrollState = rememberScrollState(0f)
+							val newsScrollState = rememberScrollState(0f)
 
 							Scaffold(
 								topBar = { AppTopbar(screen) },
@@ -62,7 +61,7 @@ class EntryActivity : AppCompatActivity() {
 								Box(modifier = Modifier.padding(innerPadding)) {
 									when (screen) {
 										MainScreen.Page1 -> BooksScreen(books = Book.mock)
-										MainScreen.Page2 -> News.Content(scrollState)
+										MainScreen.Page2 -> News.Content(newsScrollState)
 										MainScreen.Page3 -> Greeting(name = "3", count, setCount)
 									}
 								}
