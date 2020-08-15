@@ -4,6 +4,8 @@ This Repository intent to be the playground for anything in the Android World.
 # TODO
 - rename root package to be more generic: from com.med to com.playground
 - better readme for CI/CD, Architecture
+- Try DFM + ML => 1 UI DFM, 1 ML Android Module. DFM UI import ML Module
+- Github Action
 
 # Tech stack
 - Dynamic Feature Module
