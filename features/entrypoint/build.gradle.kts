@@ -31,25 +31,6 @@ android {
 dependencies {
 	implementation(fileTree(mapOf("include" to listOf("*.jar"), "dir" to "libs")))
 	implementation(project(ModuleDependency.APP))
-//	implementation(Libs.kotlinStd)
-//	implementation(Libs.appCompat)
-//	implementation(Libs.androidKtx)
-//	implementation(Libs.googleMaterial)
-//
-//	implementation(Libs.coroutineCore)
-//	implementation(Libs.coroutineAndroid)
-//
-//	implementation(Libs.room)
-//	implementation(Libs.roomKtx)
-//	kapt(Libs.roomKapt)
-//
-//	implementation(Libs.activityKtx)
-//	implementation(Libs.viewModel)
-//	implementation(Libs.lifecycle)
-//	implementation(Libs.liveData)
-//	implementation(Libs.lifecycleProcess)
-//	implementation(Libs.lifecycleCommon)
-//	addCoreFeatureDeps()
 
 	implementation(Libs.timber)
 	implementation(Libs.kotlinStd)

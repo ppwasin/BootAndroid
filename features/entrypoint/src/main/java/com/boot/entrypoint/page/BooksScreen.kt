@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.boot.entrypoint.components.AppScaffold
 import com.github.zsoltk.compose.router.Router
 
 data class Book(val title: String, val author: String) {
@@ -33,20 +34,25 @@ fun BooksScreen(
 	Router<BooksScreenRouting>(BooksScreenRouting.FirstPage) { backStack ->
 		when (val routing = backStack.last()) {
 			BooksScreenRouting.FirstPage ->
-				if (books.isNullOrEmpty()) {
-					Stack(modifier = Modifier.fillMaxSize()) {
-						Text(
-							"Empty",
-							style = MaterialTheme.typography.h6,
-							modifier = Modifier.gravity(Alignment.Center)
-						)
-					}
-				} else {
-					LazyColumnFor(items = books) { item ->
-						BookItem(item) { backStack.push(BooksScreenRouting.DetailsPage(item)) }
+				AppScaffold(title = "Book List") {
+					if (books.isNullOrEmpty()) {
+						Stack(modifier = Modifier.fillMaxSize()) {
+							Text(
+								"Empty",
+								style = MaterialTheme.typography.h6,
+								modifier = Modifier.gravity(Alignment.Center)
+							)
+						}
+					} else {
+						LazyColumnFor(items = books) { item ->
+							BookItem(item) { backStack.push(BooksScreenRouting.DetailsPage(item)) }
+						}
 					}
 				}
-			is BooksScreenRouting.DetailsPage -> BookItem(routing.book, action = {})
+			is BooksScreenRouting.DetailsPage ->
+				AppScaffold(title = routing.book.title, backNavigation = backStack::pop) {
+					BookItem(routing.book, action = {})
+				}
 		}
 	}
 

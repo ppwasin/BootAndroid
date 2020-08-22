@@ -19,7 +19,7 @@ import androidx.compose.ui.platform.setContent
 import androidx.compose.ui.unit.dp
 import androidx.ui.tooling.preview.Preview
 import com.boot.entrypoint.components.AppBottomNavigation
-import com.boot.entrypoint.components.AppTopbar
+import com.boot.entrypoint.components.AppScaffold
 import com.boot.entrypoint.page.Book
 import com.boot.entrypoint.page.BooksScreen
 import com.boot.entrypoint.page.News
@@ -55,7 +55,6 @@ class EntryActivity : AppCompatActivity() {
 							val newsScrollState = rememberScrollState(0f)
 
 							Scaffold(
-								topBar = { AppTopbar(screen) },
 								bottomBar = { AppBottomNavigation(screen, setScreen) }
 							) { innerPadding ->
 								Box(modifier = Modifier.padding(innerPadding)) {
@@ -91,26 +90,28 @@ class EntryActivity : AppCompatActivity() {
 
 @Composable
 fun Greeting(name: String, count: Int, setCount: (Int) -> Unit) {
-	ConstraintLayout(modifier = Modifier.padding(8.dp)) {
-		val (text, button) = createRefs()
-		val buttonConstraint = Modifier.constrainAs(button) {
-			top.linkTo(parent.top)
-		}
-		val textConstraint = Modifier.constrainAs(text) {
-			top.linkTo(button.bottom, 8.dp)
-		}
+	AppScaffold(title = "Sample remember state") {
+		ConstraintLayout(modifier = Modifier.padding(8.dp)) {
+			val (text, button) = createRefs()
+			val buttonConstraint = Modifier.constrainAs(button) {
+				top.linkTo(parent.top)
+			}
+			val textConstraint = Modifier.constrainAs(text) {
+				top.linkTo(button.bottom, 8.dp)
+			}
 
-		Button(
-			onClick = { setCount(count + 1) },
-			modifier = buttonConstraint
-		) {
-			Text("count up")
-		}
+			Button(
+				onClick = { setCount(count + 1) },
+				modifier = buttonConstraint
+			) {
+				Text("count up")
+			}
 
-		Text(
-			text = "Hello $name! $count",
-			modifier = textConstraint
-		)
+			Text(
+				text = "Hello $name! $count",
+				modifier = textConstraint
+			)
+		}
 	}
 }
 
