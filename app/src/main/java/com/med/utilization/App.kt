@@ -2,6 +2,7 @@ package com.med.utilization
 
 import android.app.Application
 import android.content.Context
+import com.facebook.stetho.Stetho
 import com.google.android.play.core.splitcompat.SplitCompat
 import com.med.utilization.di.AppComponent
 import com.med.utilization.di.AppDiProvider
@@ -13,6 +14,7 @@ class App : Application(), AppDiProvider {
 	override fun onCreate() {
 		super.onCreate()
 		initTimberWithCrashlytics(this)
+		Stetho.initializeWithDefaults(this)
 		appComponent = createDaggerAppComponent()
 	}
 

@@ -27,7 +27,7 @@ object Versions {
 	const val junit = "4.13"
 //	const val btmNavigator = "1.1"
 
-	const val coroutine = "1.3.8"
+	const val coroutine = "1.3.9"
 	const val moshi = "1.9.3"
 	const val autoService = "1.0-rc7"
 	const val timber = "4.7.1"
