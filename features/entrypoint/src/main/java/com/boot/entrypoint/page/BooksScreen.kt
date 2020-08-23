@@ -50,6 +50,15 @@ fun BooksScreen(
 					}
 				}
 			is BooksScreenRouting.DetailsPage ->
+//				AnimatedVisibility(
+//					visible = true,
+//					enter = expandHorizontally(expandFrom = Start),
+//					exit = shrinkHorizontally(shrinkTowards = Start)
+//				) {
+//					AppScaffold(title = routing.book.title, backNavigation = backStack::pop) {
+//						BookItem(routing.book, action = {})
+//					}
+//				}
 				AppScaffold(title = routing.book.title, backNavigation = backStack::pop) {
 					BookItem(routing.book, action = {})
 				}

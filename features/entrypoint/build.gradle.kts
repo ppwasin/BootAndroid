@@ -23,7 +23,8 @@ android {
 			"-Xskip-prerelease-check",
 			"-Xopt-in=kotlin.RequiresOptIn",
 			"-Xopt-in=kotlin.OptIn",
-			"-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi"
+			"-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
+			"-Xuse-experimental=androidx.compose.animation.ExperimentalAnimationApi"
 		)
 	}
 }

@@ -23,6 +23,7 @@ import com.boot.entrypoint.components.AppScaffold
 import com.boot.entrypoint.page.Book
 import com.boot.entrypoint.page.BooksScreen
 import com.boot.entrypoint.page.News
+import com.boot.entrypoint.sample.google.AnimationsDemo
 import com.boot.entrypoint.ui.BootAndroidTheme
 import com.github.zsoltk.compose.backpress.AmbientBackPressHandler
 import com.github.zsoltk.compose.backpress.BackPressHandler
@@ -62,6 +63,7 @@ class EntryActivity : AppCompatActivity() {
 										MainScreen.Page1 -> BooksScreen(books = Book.mock)
 										MainScreen.Page2 -> News.Content(newsScrollState)
 										MainScreen.Page3 -> Greeting(name = "3", count, setCount)
+										MainScreen.Page4 -> AnimationsDemo()
 									}
 								}
 							}
