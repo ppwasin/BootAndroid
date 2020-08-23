@@ -8,13 +8,16 @@ buildscript {
 		google()
 		jcenter()
 		maven { setUrl("https://plugins.gradle.org/m2/") }
+//		maven {
+//			url = java.net.URI("https://dl.bintray.com/kotlin/kotlin-eap/")
+//		}
+//		maven("https://jitpack.io")
 	}
 	dependencies {
 		classpath(BuildPlugins.androidGradle)
 		classpath(BuildPlugins.kotlinGradlePlugin)
 		DependenciesVersionChecker.addClassPath(this)
 		classpath(BuildPlugins.playPublisher)
-
 	}
 }
 
@@ -22,7 +25,10 @@ allprojects {
 	repositories {
 		google()
 		jcenter()
-
+//		maven {
+//			url = java.net.URI("https://dl.bintray.com/kotlin/kotlin-eap/")
+//		}
+		maven("https://jitpack.io")
 	}
 }
 

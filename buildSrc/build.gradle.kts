@@ -1,21 +1,15 @@
 plugins {
 	`kotlin-dsl`
 }
-repositories {
-	jcenter()
-	google()
-}
-object PluginVersions {
-	const val kotlin = "1.3.71"
-	const val androidGradle = "3.6.1"
-}
+//val android_gradle_version: String by project
+//val kotlin_version: String by project
 
-object Plugins {
-	const val androidGradle = "com.android.tools.build:gradle:${PluginVersions.androidGradle}"
-	const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${PluginVersions.kotlin}"
+repositories {
+	google()
+	jcenter()
 }
 
 dependencies {
-	implementation(Plugins.androidGradle)
-	implementation(Plugins.kotlinGradlePlugin)
+	implementation("com.android.tools.build:gradle:4.2.0-alpha07")
+	implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.0-rc")
 }

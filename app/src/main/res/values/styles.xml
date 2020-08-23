@@ -8,6 +8,10 @@
         <item name="colorAccent">@color/primaryLightColor</item>
     </style>
 
+    <style name="AppTheme.Toolbar" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="colorOnPrimary">@android:color/white</item>
+    </style>
+
     <!--    <style name="AppThemeNoActionbar" parent="Theme.MaterialComponents.DayNight.NoActionBar">-->
     <!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
     <!--        <item name="colorPrimary">@color/primaryColor</item>-->

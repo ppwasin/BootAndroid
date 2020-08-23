@@ -3,6 +3,7 @@ package com.med.utilization.network
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.med.utilization.BuildConfig
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
@@ -36,7 +37,7 @@ object NetworkModule {
 		return if (BuildConfig.DEBUG)
 			OkHttpClient().newBuilder()
 				.addNetworkInterceptor(StethoInterceptor())
-				.addNetworkInterceptor(logging)
+				.addInterceptor(logging)
 				.connectTimeout(NET_TIMEOUT, TimeUnit.SECONDS)
 				.build()
 		else
@@ -50,6 +51,7 @@ object NetworkModule {
 	fun providesMoshi(): Moshi {
 		return Moshi.Builder()
 			.add(ZonedDateTimeMoshiAdapter())
+			.add(KotlinJsonAdapterFactory())
 			.build()
 	}
 
