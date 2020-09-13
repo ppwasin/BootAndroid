@@ -12,6 +12,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.boot.entrypoint.sample.AnimateLayout
+import com.boot.entrypoint.sample.AnimateTransformer
 import com.boot.entrypoint.sample.google.AnimationsDemoRouting.*
 
 enum class AnimationsDemoRouting {
@@ -19,7 +21,9 @@ enum class AnimationsDemoRouting {
 	EnterExitTransitionDemo,
 	AnimatedVisibilityDemo,
 	AnimatedVisibilityLazyColumnDemo,
-	CrossfadeDemo
+	CrossfadeDemo,
+	AnimateLayout,
+	AnimateTransformer
 }
 
 @Composable
@@ -35,6 +39,8 @@ fun AnimationsDemo() {
 		AnimatedVisibilityDemo -> AnimatedVisibilityDemo()
 		AnimatedVisibilityLazyColumnDemo -> AnimatedVisibilityLazyColumnDemo()
 		CrossfadeDemo -> CrossfadeDemo()
+		AnimateLayout -> AnimateLayout()
+		AnimateTransformer -> AnimateTransformer()
 	}
 }
 

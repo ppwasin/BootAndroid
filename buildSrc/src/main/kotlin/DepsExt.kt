@@ -18,9 +18,7 @@ fun BaseExtension.configureApp(extDefaultConfig: DefaultConfig.() -> Unit = {}) 
 	}
 	compileOptions()
 	configureFavor()
-	viewBinding {
-		isEnabled = true
-	}
+	buildFeatures.viewBinding = true
 }
 
 fun BaseExtension.configureAndroidLib(extDefaultConfig: DefaultConfig.() -> Unit = {}) {
@@ -51,9 +49,7 @@ fun BaseExtension.configureDFM(extDefaultConfig: DefaultConfig.() -> Unit = {}) 
 	}
 	compileOptions()
 	configureFavor()
-	viewBinding {
-		isEnabled = true
-	}
+	buildFeatures.viewBinding = true
 }
 
 fun BaseExtension.configureFavor() {

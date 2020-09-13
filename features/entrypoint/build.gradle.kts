@@ -50,6 +50,6 @@ dependencies {
 	implementation("androidx.compose.runtime:runtime:${Versions.compose}")
 	implementation("androidx.compose.ui:ui:${Versions.compose}")
 	implementation("androidx.ui:ui-tooling:${Versions.compose}")
-	implementation("com.github.zsoltk:compose-router:0.16.0")
+	implementation("com.github.zsoltk:compose-router:0.18.0")
 
 }

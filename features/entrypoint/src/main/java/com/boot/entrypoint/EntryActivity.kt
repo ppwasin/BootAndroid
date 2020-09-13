@@ -3,6 +3,7 @@ package com.boot.entrypoint
 import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.Box
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.ConstraintLayout
@@ -20,10 +21,9 @@ import androidx.compose.ui.unit.dp
 import androidx.ui.tooling.preview.Preview
 import com.boot.entrypoint.components.AppBottomNavigation
 import com.boot.entrypoint.components.AppScaffold
-import com.boot.entrypoint.page.Book
-import com.boot.entrypoint.page.BooksScreen
 import com.boot.entrypoint.page.News
 import com.boot.entrypoint.sample.google.AnimationsDemo
+import com.boot.entrypoint.sample.material_motion.ContainerTransformerDemo
 import com.boot.entrypoint.ui.BootAndroidTheme
 import com.github.zsoltk.compose.backpress.AmbientBackPressHandler
 import com.github.zsoltk.compose.backpress.BackPressHandler
@@ -47,7 +47,6 @@ class EntryActivity : AppCompatActivity() {
 				Providers(
 					AmbientBackPressHandler provides backPressHandler,
 				) {
-//					val (screen, setScreen) = remember { mutableStateOf(MainScreen.Page1) }
 					BundleScope(savedInstanceState) {
 						Router(MainScreen.Page1) { backStack ->
 							val screen = backStack.last()
@@ -58,12 +57,18 @@ class EntryActivity : AppCompatActivity() {
 							Scaffold(
 								bottomBar = { AppBottomNavigation(screen, setScreen) }
 							) { innerPadding ->
-								Box(modifier = Modifier.padding(innerPadding)) {
-									when (screen) {
-										MainScreen.Page1 -> BooksScreen(books = Book.mock)
-										MainScreen.Page2 -> News.Content(newsScrollState)
-										MainScreen.Page3 -> Greeting(name = "3", count, setCount)
-										MainScreen.Page4 -> AnimationsDemo()
+								Crossfade(current = screen) { screen ->
+									Box(modifier = Modifier.padding(innerPadding)) {
+										when (screen) {
+											MainScreen.Page1 -> ContainerTransformerDemo()
+											MainScreen.Page2 -> News.Content(newsScrollState)
+											MainScreen.Page3 -> Greeting(
+												name = "3",
+												count,
+												setCount
+											)
+											MainScreen.Page4 -> AnimationsDemo()
+										}
 									}
 								}
 							}
@@ -121,6 +126,6 @@ fun Greeting(name: String, count: Int, setCount: (Int) -> Unit) {
 @Composable
 fun DefaultPreview() {
 	BootAndroidTheme {
-		Greeting("Android", 0) {}
+		Greeting("Androi", 0) {}
 	}
 }

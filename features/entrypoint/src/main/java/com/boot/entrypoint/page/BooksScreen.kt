@@ -1,30 +1,22 @@
 package com.boot.entrypoint.page
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
-import androidx.compose.foundation.ScrollableColumn
 import androidx.compose.foundation.Text
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumnFor
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.ContextAmbient
 import androidx.compose.ui.unit.dp
-import com.boot.entrypoint.R
 import com.boot.entrypoint.components.AppScaffold
+import com.boot.entrypoint.sample.material_motion.VerticalTransform
 import com.github.zsoltk.compose.router.Router
 
 data class Book(val title: String, val author: String) {
 	companion object {
-		val mock = (1..30).map {
+		val mock = (1..1).map {
 			Book("Title$it", "Author$it")
 		}
 	}
@@ -53,31 +45,40 @@ fun BooksScreen(
 						}
 					} else {
 						LazyColumnFor(items = books) { item ->
-							BookItem(item) { backStack.push(BooksScreenRouting.DetailsPage(item)) }
+							VerticalTransform(onStateChangeFinished = {
+								backStack.push(
+									BooksScreenRouting.DetailsPage(item)
+								)
+							}) {
+								BookItem(item)
+							}
 						}
 					}
 				}
 			is BooksScreenRouting.DetailsPage ->
-				AppScaffold(title = routing.book.title, backNavigation = backStack::pop) {
-					AnimatedVisibility(
-						initiallyVisible = false,
-						visible = true,
-						enter = slideInHorizontally(initialOffsetX = { it / 2 }),
-						exit = slideOutHorizontally()
-					) {
-						val context = ContextAmbient.current
-						Column {
-							ScrollableColumn {
-								BookItem(routing.book, action = {})
-								Text(context.getString(R.string.dummy_long_string))
-							}
-						}
-
-					}
-				}
 //				AppScaffold(title = routing.book.title, backNavigation = backStack::pop) {
-//					BookItem(routing.book, action = {})
+//					AnimatedVisibility(
+//						initiallyVisible = false,
+//						visible = true,
+//						enter = slideInHorizontally(
+//							initialOffsetX = { it / 2 },
+//							animSpec = spring()
+//						),
+//						exit = slideOutHorizontally()
+//					) {
+//						val context = ContextAmbient.current
+//						Column {
+//							ScrollableColumn {
+//								BookItem(routing.book)
+//								Text(context.getString(R.string.dummy_long_string))
+//							}
+//						}
+//
+//					}
 //				}
+				AppScaffold(title = routing.book.title, backNavigation = backStack::pop) {
+					BookItem(routing.book)
+				}
 		}
 	}
 
@@ -85,15 +86,12 @@ fun BooksScreen(
 
 @Composable
 fun BookItem(
-	book: Book,
-	action: (Book) -> Unit
+	book: Book
 ) {
 	Card(
 		elevation = 4.dp,
 		shape = RoundedCornerShape(4.dp),
-		modifier = Modifier.padding(8.dp).clickable(onClick = {
-			action(book)
-		})
+		modifier = Modifier.padding(8.dp)
 	) {
 		BookItemContent(book)
 	}
@@ -104,13 +102,8 @@ fun BookItemContent(
 	book: Book
 ) {
 	Row(modifier = Modifier.padding(8.dp).fillMaxWidth()) {
-//		CoilImage (
-//			modifier = Modifier. PreferredSize (96 SD , 144 SD ),
-//			data = book.coverUrl
-//		)
-		Column(
 
-		) {
+		Column {
 			Text(
 				text = book.title,
 				style = MaterialTheme.typography.h6

@@ -1,6 +1,5 @@
 package com.boot.entrypoint.components
 
-import androidx.compose.animation.*
 import androidx.compose.foundation.Icon
 import androidx.compose.foundation.Text
 import androidx.compose.material.IconButton
@@ -19,14 +18,15 @@ fun AppScaffold(
 	Scaffold(
 		topBar = {
 			TopAppBar(
-				title = {
-					AnimatedVisibility(
-						initiallyVisible = false,
-						visible = true,
-						enter = fadeIn() + expandHorizontally(),
-						exit = fadeOut() + shrinkHorizontally()
-					) { Text(text = title) }
-				},
+//				title = {
+//					AnimatedVisibility(
+//						initiallyVisible = false,
+//						visible = true,
+//						enter = fadeIn() + expandHorizontally(),
+//						exit = fadeOut() + shrinkHorizontally()
+//					) { Text(text = title) }
+//				},
+				title = { Text(text = title) },
 				navigationIcon = if (backNavigation != null) {
 					{ AppBackButton(backNavigation) }
 				} else null
