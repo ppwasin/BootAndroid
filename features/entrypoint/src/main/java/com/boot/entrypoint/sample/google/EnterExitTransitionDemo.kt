@@ -4,7 +4,6 @@ import androidx.compose.animation.*
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.RowScope.weight
 import androidx.compose.foundation.lazy.LazyColumnFor
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.material.Button
@@ -119,8 +118,7 @@ fun CenterMenu(
 	alignment: Alignment,
 	visible: Boolean
 ) {
-	Stack(Modifier.fillMaxHeight().weight(1f)) {
-
+	Box(Modifier.fillMaxHeight()) {
 		val animationAlignment = if (oppositeDirection) opposite(alignment) else alignment
 		val enter = when (animationAlignment) {
 			TopCenter -> expandVertically(expandFrom = Top)
@@ -190,7 +188,7 @@ fun FadeOptions(selectedOption: Int, onOptionSelected: (Int) -> Unit) {
 					onClick = { onOptionSelected(i) }
 				)
 				.padding(horizontal = 16.dp),
-				verticalGravity = Alignment.CenterVertically
+				verticalAlignment = Alignment.CenterVertically
 			) {
 				RadioButton(
 					selected = (i == selectedOption),

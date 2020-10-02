@@ -21,25 +21,25 @@ fun AppBottomNavigation(
 			icon = { Icon(Icons.Filled.Call) },
 			label = { Text("Call") },
 			selected = screen == MainScreen.Page1,
-			onSelect = { setScreen(MainScreen.Page1) }
+			onClick = { setScreen(MainScreen.Page1) }
 		)
 		BottomNavigationItem(
 			icon = { Icon(Icons.Filled.Face) },
 			label = { Text("People") },
 			selected = screen == MainScreen.Page2,
-			onSelect = { setScreen(MainScreen.Page2) }
+			onClick = { setScreen(MainScreen.Page2) }
 		)
 		BottomNavigationItem(
 			icon = { Icon(Icons.Filled.Email) },
 			label = { Text("Email") },
 			selected = screen == MainScreen.Page3,
-			onSelect = { setScreen(MainScreen.Page3) }
+			onClick = { setScreen(MainScreen.Page3) }
 		)
 		BottomNavigationItem(
 			icon = { Icon(Icons.Filled.Email) },
 			label = { Text("Demo") },
 			selected = screen == MainScreen.Page4,
-			onSelect = { setScreen(MainScreen.Page4) }
+			onClick = { setScreen(MainScreen.Page4) }
 		)
 	}
 }
