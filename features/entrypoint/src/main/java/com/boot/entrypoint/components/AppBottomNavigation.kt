@@ -41,5 +41,11 @@ fun AppBottomNavigation(
 			selected = screen == MainScreen.Page4,
 			onClick = { setScreen(MainScreen.Page4) }
 		)
+		BottomNavigationItem(
+			icon = { Icon(Icons.Filled.Email) },
+			label = { Text("Demo") },
+			selected = screen == MainScreen.Book,
+			onClick = { setScreen(MainScreen.Book) }
+		)
 	}
 }

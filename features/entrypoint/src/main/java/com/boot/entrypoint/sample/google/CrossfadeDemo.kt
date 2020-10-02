@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.gesture.tapGestureFilter
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import timber.log.Timber
 import kotlin.random.Random
 
 @Composable
@@ -49,7 +50,7 @@ private data class Tab(val color: Color) {
 	var lastInt: Int = 0
 		set(value) {
 			if (value != field) {
-				Log.e("Crossfade", "State recreated for $color")
+				Timber.e("State recreated for $color")
 				field = value
 			}
 		}

@@ -32,7 +32,7 @@ fun AnimatedItems(animateContentSize: Boolean) {
 	Stack(
 		Modifier.padding(bottom = 20.dp)
 	) {
-		Button(modifier = Modifier.gravity(Alignment.TopEnd).padding(10.dp),
+		Button(modifier = Modifier.align(Alignment.TopEnd).padding(10.dp),
 			onClick = {
 				counter = (counter + 1) % 12
 			}) {
@@ -86,7 +86,7 @@ fun Item(color: Color, text: String = "") {
 	Stack(Modifier.height(80.dp).fillMaxWidth().background(color)) {
 		Text(
 			text,
-			modifier = Modifier.gravity(Alignment.CenterStart).padding(start = 10.dp)
+			modifier = Modifier.align(Alignment.CenterStart).padding(start = 10.dp)
 		)
 	}
 }
@@ -98,7 +98,7 @@ fun AnimateContentSizeOption(state: MutableState<Boolean>) {
 			.padding(10.dp)
 	) {
 		Checkbox(state.value, { state.value = it })
-		Text("AnimateContentSize", modifier = Modifier.gravity(Alignment.CenterVertically))
+		Text("AnimateContentSize", modifier = Modifier.align(Alignment.CenterVertically))
 	}
 }
 
