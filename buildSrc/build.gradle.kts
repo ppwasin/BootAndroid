@@ -1,15 +1,19 @@
 plugins {
 	`kotlin-dsl`
 }
-//val android_gradle_version: String by project
-//val kotlin_version: String by project
 
 repositories {
 	google()
 	jcenter()
+	gradlePluginPortal()
 }
 
 dependencies {
-	implementation("com.android.tools.build:gradle:4.2.0-alpha13")
-	implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10")
+	implementation(BuildPlugins.androidGradle)
+	implementation(BuildPlugins.kotlinGradlePlugin)
+}
+
+kotlin {
+	// Add Deps to compilation, so it will become available in main project
+	sourceSets.getByName("main").kotlin.srcDir("buildSrc/src/main/kotlin")
 }
