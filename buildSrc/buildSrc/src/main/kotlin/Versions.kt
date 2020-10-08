@@ -1,6 +1,6 @@
 object Versions {
 	const val kotlin = "1.4.10"
-	const val androidGradle = "4.2.0-alpha10"
+	const val androidGradle = "4.2.0-alpha13"
 	const val googleService = "4.3.3"
 	const val fabric = "1.31.0"
 
@@ -41,5 +41,5 @@ object Versions {
 	//Utils
 	const val bottomNavigator = "1.6"
 
-	const val compose = "1.0.0-alpha02"
+	const val compose = "1.0.0-alpha04"
 }

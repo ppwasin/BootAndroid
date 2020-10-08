@@ -4,10 +4,11 @@ import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.Crossfade
-import androidx.compose.foundation.Box
 import androidx.compose.foundation.Text
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.ConstraintLayout
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.Button
 import androidx.compose.material.Scaffold
@@ -21,6 +22,8 @@ import androidx.compose.ui.unit.dp
 import androidx.ui.tooling.preview.Preview
 import com.boot.entrypoint.components.AppBottomNavigation
 import com.boot.entrypoint.components.AppScaffold
+import com.boot.entrypoint.page.Book
+import com.boot.entrypoint.page.BooksScreen
 import com.boot.entrypoint.page.News
 import com.boot.entrypoint.sample.google.AnimationsDemo
 import com.boot.entrypoint.sample.material_motion.ContainerTransformerDemo
@@ -53,6 +56,7 @@ class EntryActivity : AppCompatActivity() {
 							val setScreen = backStack::push
 							val (count, setCount) = remember { mutableStateOf(0) }
 							val newsScrollState = rememberScrollState(0f)
+							val bookScroolState = rememberLazyListState()
 
 							Scaffold(
 								bottomBar = { AppBottomNavigation(screen, setScreen) }
@@ -68,6 +72,10 @@ class EntryActivity : AppCompatActivity() {
 												setCount
 											)
 											MainScreen.Page4 -> AnimationsDemo()
+											MainScreen.Book -> BooksScreen(
+												scrollState = bookScroolState,
+												books = Book.mock
+											)
 										}
 									}
 								}

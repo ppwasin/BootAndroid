@@ -31,7 +31,7 @@ android {
 
 dependencies {
 	implementation(fileTree(mapOf("include" to listOf("*.jar"), "dir" to "libs")))
-	implementation(project(ModuleDependency.APP))
+	implementation(project(AppModule.APP))
 
 	implementation(Libs.timber)
 	implementation(Libs.kotlinStd)

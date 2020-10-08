@@ -1,3 +1,4 @@
+import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -8,10 +9,6 @@ buildscript {
 		google()
 		jcenter()
 		maven { setUrl("https://plugins.gradle.org/m2/") }
-//		maven {
-//			url = java.net.URI("https://dl.bintray.com/kotlin/kotlin-eap/")
-//		}
-//		maven("https://jitpack.io")
 	}
 	dependencies {
 		classpath(BuildPlugins.androidGradle)
@@ -25,9 +22,6 @@ allprojects {
 	repositories {
 		google()
 		jcenter()
-//		maven {
-//			url = java.net.URI("https://dl.bintray.com/kotlin/kotlin-eap/")
-//		}
 		maven("https://jitpack.io")
 	}
 }
@@ -52,21 +46,21 @@ tasks {
 	}
 }
 
-tasks {
+//./gradlew dependencyUpdates
+tasks.withType<DependencyUpdatesTask> {
 	// Gradle versions plugin configuration
-	"dependencyUpdates"(com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask::class) {
-		resolutionStrategy {
-			componentSelection {
-				all {
-					// Do not show pre-release version of library in generated dependency report
-					val rejected = listOf("alpha", "beta", "rc", "cr", "m", "preview")
-						.map { qualifier -> Regex("(?i).*[.-]$qualifier[.\\d-]*") }
-						.any { it.matches(candidate.version) }
-					if (rejected) {
-						reject("Release candidate")
-					}
+	resolutionStrategy {
+		componentSelection {
+			all {
+				// Do not show pre-release version of library in generated dependency report
+				val rejected = listOf("alpha", "beta", "rc", "cr", "m", "preview")
+					.map { qualifier -> Regex("(?i).*[.-]$qualifier[.\\d-]*") }
+					.any { it.matches(candidate.version) }
+				if (rejected) {
+					reject("Release candidate")
 				}
 			}
 		}
 	}
+
 }
