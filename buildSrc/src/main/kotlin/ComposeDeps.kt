@@ -1,14 +1,13 @@
+import com.android.build.gradle.AppExtension
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
-//fun AppEx
-//
-//fun BaseExtension.configureCompose(){
-//	buildFeatures.compose = true
-//	composeOptions {
-//		kotlinCompilerVersion = Versions.kotlin
-//		kotlinCompilerExtensionVersion = Versions.compose
-//	}
-//
+fun AppExtension.configureCompose() {
+	buildFeatures.compose = true
+	composeOptions {
+		kotlinCompilerVersion = Versions.kotlin
+		kotlinCompilerExtensionVersion = Versions.compose
+	}
+
 //	kotlinOptions {
 //		jvmTarget = JavaVersion.VERSION_1_8.toString()
 //		freeCompilerArgs = freeCompilerArgs + listOf(
@@ -20,7 +19,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 //			"-Xuse-experimental=androidx.compose.animation.ExperimentalAnimationApi"
 //		)
 //	}
-//}
+}
 
 
 fun DependencyHandlerScope.addComposeDeps() {
