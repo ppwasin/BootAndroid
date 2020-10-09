@@ -10,7 +10,7 @@ object AppModule {
 	const val APP = ":app"
 	const val LIB_DYNAMIC_FEATURE = ":dynamicFeature"
 	const val LIB_CORE_UI = ":coreUi"
-	const val CORE_COMPOSE = ":base:coreCompose"
+	const val CORE_COMPOSE = ":base:ComposeApp"
 	const val FEATURE_SEARCH = ":features:featureSearch"
 	const val FEATURE_CHAT = ":features:featureChat"
 	const val FEATURE_ENTRIES = ":features:featureEntries"

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/compose_nav_graph"
+    app:startDestination="@id/movie">
+    <activity
+        android:id="@+id/movie"
+        android:name="com.boot.movie.MovieActivity"
+        android:label="Movie"
+        app:moduleName="movie" />
+</navigation>

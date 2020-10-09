@@ -17,7 +17,7 @@ afterEvaluate {
 	}
 }
 android {
-	configureApp {
+	configureApp("com.med.utilization") {
 		addRoomConfig(projectDir)
 	}
 	setupLocalSign()
@@ -29,13 +29,7 @@ android {
 		}
 	}
 
-	dynamicFeatures = mutableSetOf(
-		":features:featureSearch",
-		":features:featureChat",
-		":features:featureEntries",
-		":features:entrypoint",
-		":features:movie"
-	)
+	dynamicFeatures = AppModule.getDynamicFeatureModules()
 }
 
 dependencies {
