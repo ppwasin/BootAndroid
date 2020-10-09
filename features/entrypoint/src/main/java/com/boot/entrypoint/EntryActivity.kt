@@ -105,7 +105,7 @@ class EntryActivity : AppCompatActivity() {
 
 @Composable
 fun Greeting(name: String, count: Int, setCount: (Int) -> Unit) {
-	AppScaffold(title = "Sample remember state") {
+	AppScaffold(title = "Sample remember statedd") {
 		ConstraintLayout(modifier = Modifier.padding(8.dp)) {
 			val (text, button) = createRefs()
 			val buttonConstraint = Modifier.constrainAs(button) {

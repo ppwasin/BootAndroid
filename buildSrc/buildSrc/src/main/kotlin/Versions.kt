@@ -42,4 +42,5 @@ object Versions {
 	const val bottomNavigator = "1.6"
 
 	const val compose = "1.0.0-alpha04"
+	const val composeRouter = "0.19.0"
 }

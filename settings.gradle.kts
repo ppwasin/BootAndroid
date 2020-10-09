@@ -6,7 +6,7 @@ pluginManagement {
 	}
 }
 
-includeBuild("plugins")
+//includeBuild("plugins")
 
 fun shouldInclude(include: String?, moduleName: String): Boolean {
 	if (include != null) {
@@ -46,7 +46,6 @@ val featureModel = File(rootDir, "features")
 				&& file("${it.absolutePath}/build.gradle.kts").exists()
 	}
 	.map { ":features:${it.name}" }
-
 
 (coreModule + featureModel)
 	.filter { shouldInclude(include, it) }

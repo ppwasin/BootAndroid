@@ -161,20 +161,3 @@ fun DependencyHandlerScope.addCoreFeatureDeps() {
 	addKapt(Libs.autoServiceKapt)
 	addDagger()
 }
-
-//fun BaseExtension.addCompose() {
-//	buildFeatures {
-//		compose true
-//	}
-//
-//	composeOptions {
-//		kotlinCompilerVersion "1.4.0-RC"
-//		kotlinCompilerExtensionVersion "0.1.0-dev16"
-//	}
-//}
-
-fun DependencyHandlerScope.addComposeFeature() {
-	val version = "0.1.0-dev16"
-	addImplementation("androidx.ui:ui-tooling:$version")
-	addImplementation("androidx.ui:ui-test:$version")
-}

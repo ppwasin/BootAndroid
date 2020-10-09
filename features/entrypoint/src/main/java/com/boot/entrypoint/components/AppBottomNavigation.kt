@@ -5,9 +5,7 @@ import androidx.compose.foundation.Text
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Call
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Face
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.Composable
 import com.boot.entrypoint.MainScreen
 
@@ -36,14 +34,14 @@ fun AppBottomNavigation(
 			onClick = { setScreen(MainScreen.Page3) }
 		)
 		BottomNavigationItem(
-			icon = { Icon(Icons.Filled.Email) },
-			label = { Text("Demo") },
+			icon = { Icon(Icons.Filled.VideogameAsset) },
+			label = { Text("Animation") },
 			selected = screen == MainScreen.Page4,
 			onClick = { setScreen(MainScreen.Page4) }
 		)
 		BottomNavigationItem(
-			icon = { Icon(Icons.Filled.Email) },
-			label = { Text("Demo") },
+			icon = { Icon(Icons.Filled.Book) },
+			label = { Text("Book") },
 			selected = screen == MainScreen.Book,
 			onClick = { setScreen(MainScreen.Book) }
 		)

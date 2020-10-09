@@ -4,7 +4,7 @@ plugins {
 	kotlinKapt()
 	kotlinExt()
 	gradlePlay()
-	id("class-loader-plugin")
+//	id("class-loader-plugin")
 }
 play {
 	serviceAccountCredentials = rootProject.file("release-app.json")
@@ -33,7 +33,8 @@ android {
 		":features:featureSearch",
 		":features:featureChat",
 		":features:featureEntries",
-		":features:entrypoint"
+		":features:entrypoint",
+		":features:movie"
 	)
 }
 
