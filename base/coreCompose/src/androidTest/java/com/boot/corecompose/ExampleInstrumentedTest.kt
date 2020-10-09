@@ -1,4 +1,4 @@
-package com.boot.movie
+package com.boot.corecompose
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -15,10 +15,10 @@ import org.junit.Assert.*
  */
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
-	@Test
-	fun useAppContext() {
-		// Context of the app under test.
-		val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-		assertEquals("com.boot.movie.test", appContext.packageName)
-	}
+    @Test
+    fun useAppContext() {
+        // Context of the app under test.
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+        assertEquals("com.boot.corecompose.test", appContext.packageName)
+    }
 }

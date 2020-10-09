@@ -1,7 +1,7 @@
-import com.android.build.gradle.AppExtension
+import com.android.build.gradle.BaseExtension
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
-fun AppExtension.configureCompose() {
+fun BaseExtension.configureCompose() {
 	buildFeatures.compose = true
 	composeOptions {
 		kotlinCompilerVersion = Versions.kotlin
@@ -32,4 +32,5 @@ fun DependencyHandlerScope.addComposeDeps() {
 	addImplementation("androidx.compose.ui:ui:${Versions.compose}")
 	addImplementation("androidx.ui:ui-tooling:${Versions.compose}")
 	addImplementation("com.github.zsoltk:compose-router:${Versions.composeRouter}")
+	addImplementation("dev.chrisbanes.accompanist:accompanist-coil:${Versions.composeAppComponist}")
 }

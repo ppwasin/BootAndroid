@@ -79,4 +79,16 @@ dependencies {
 
 
 	implementation(Libs.googleMaterial)
+
+	//Add it for DFM that use compose
+	//https://stackoverflow.com/questions/58979852/dynamic-feature-module-google-services-issue-when-more-than-one-dfm-is-added
+	/*
+	what it means is your feature 1 as well as feature 2 is bringing the same library
+	but your base module i.e app is not having that library so while packaging,
+	it doesn't know which version should be taken.
+	So to fix it you must add the particular library to your app gradle
+	OR
+	https://medium.com/pulselive/a-quick-look-at-feature-on-feature-dependencies-in-android-gradle-plugin-4-0-0-5828915d02d3
+	* */
+	addComposeDeps()
 }

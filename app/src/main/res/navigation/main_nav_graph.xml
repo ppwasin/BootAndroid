@@ -17,6 +17,10 @@
         app:moduleName="entrypoint" />
     <activity
         android:id="@+id/nav_entrypoint"
-        android:name="com.boot.entrypoint.EntryActivity"
-        app:moduleName="entrypoint" />
+        android:name="com.boot.movie.MovieActivity"
+        app:moduleName="movie" />
+    <!--    <activity-->
+    <!--        android:id="@+id/nav_entrypoint"-->
+    <!--        android:name="com.boot.entrypoint.EntryActivity"-->
+    <!--        app:moduleName="entrypoint" />-->
 </navigation>

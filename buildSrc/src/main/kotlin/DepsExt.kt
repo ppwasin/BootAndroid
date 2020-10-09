@@ -77,13 +77,13 @@ fun DefaultConfig.addRoomConfig(projectDir: File) {
 	javaCompileOptions {
 		annotationProcessorOptions {
 			argument("room.incremental", "true")
-//			arguments.plusAssign(
-//				mapOf(
-//					"room.schemaLocation" to "$projectDir/schemas",
-//					"room.incremental" to "true",
-//					"room.expandProjection" to "true"
-//				)
-//			)
+			arguments.plusAssign(
+				mapOf(
+					"room.schemaLocation" to "$projectDir/schemas",
+					"room.incremental" to "true",
+					"room.expandProjection" to "true"
+				)
+			)
 		}
 	}
 }
