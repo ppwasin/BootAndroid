@@ -11,21 +11,21 @@ import com.google.android.play.core.splitcompat.SplitCompat
 
 
 class MovieActivity : AppCompatActivity() {
-	override fun attachBaseContext(base: Context?) {
-		super.attachBaseContext(base)
-		SplitCompat.install(this)
-	}
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        SplitCompat.install(this)
+    }
 
-	override fun onCreate(savedInstanceState: Bundle?) {
-		super.onCreate(savedInstanceState)
-		setContent {
-			DogfoodTheme {
-				Surface(color = MaterialTheme.colors.background) {
-					Screen()
-				}
-			}
-		}
-	}
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            DogfoodTheme {
+                Surface(color = MaterialTheme.colors.background) {
+                    Screen()
+                }
+            }
+        }
+    }
 
 
 }

@@ -423,7 +423,7 @@ fun lerp(start: Float, stop: Float, fraction: Float): Float {
 }
 
 fun Modifier.verticalGradient(vararg colors: ColorStop) =
-	this then object : DrawModifier, InspectableParameter {
+	this then object : DrawModifier, InspectableValue {
 
 		// naive cache outline calculation if size is the same
 		private var lastSize: Size? = null
@@ -453,9 +453,9 @@ fun Modifier.verticalGradient(vararg colors: ColorStop) =
 		override val valueOverride: Any?
 			get() = colors
 
-		override val inspectableElements: Sequence<ParameterElement>
+		override val inspectableElements: Sequence<ValueElement>
 			get() = sequenceOf(
-                ParameterElement("colors", colors)
+                ValueElement("colors", colors)
             )
 	}
 

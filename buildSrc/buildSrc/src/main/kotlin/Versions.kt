@@ -11,7 +11,7 @@ object Versions {
 
 	const val materialUi = "1.2.0"
 	const val coreKtx = "1.2.0"
-	const val constraintlayout = "2.0.0-rc1"
+	const val constraintlayout = "2.0.2"
 	const val paging = "2.1.2"
 	const val androidxNav = "2.3.0"
 	const val lifecycle = "2.2.0"
@@ -41,7 +41,7 @@ object Versions {
 	//Utils
 	const val bottomNavigator = "1.6"
 
-	const val compose = "1.0.0-alpha04"
+	const val compose = "1.0.0-alpha05"
 	const val composeRouter = "0.19.0"
 	const val composeAppComponist = "0.2.2"
 }
