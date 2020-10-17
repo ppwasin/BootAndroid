@@ -9,8 +9,8 @@ import androidx.compose.ui.platform.setContent
 import com.boot.movie.ui.DogfoodTheme
 import com.google.android.play.core.splitcompat.SplitCompat
 
-
 class MovieActivity : AppCompatActivity() {
+
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
         SplitCompat.install(this)
@@ -26,6 +26,5 @@ class MovieActivity : AppCompatActivity() {
             }
         }
     }
-
 
 }
