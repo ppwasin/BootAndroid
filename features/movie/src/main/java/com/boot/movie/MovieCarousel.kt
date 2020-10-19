@@ -1,5 +1,6 @@
 package com.boot.movie
 
+//import androidx.compose.ui.util.lerp
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -30,12 +31,16 @@ import androidx.compose.ui.Measurable
 import androidx.compose.ui.MeasureScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawOpacity
+import androidx.compose.ui.drawLayer
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.gesture.scrollorientationlocking.Orientation
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorStop
+import androidx.compose.ui.graphics.Outline
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.VerticalGradient
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ConfigurationAmbient
@@ -43,9 +48,9 @@ import androidx.compose.ui.platform.DensityAmbient
 import androidx.compose.ui.platform.InspectableValue
 import androidx.compose.ui.platform.ValueElement
 import androidx.compose.ui.unit.Constraints
+import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.util.lerp
 import androidx.ui.tooling.preview.Preview
 import dev.chrisbanes.accompanist.coil.CoilImage
 import kotlin.math.abs
@@ -55,6 +60,7 @@ data class Movie(
     val title: String,
     val posterUrl: String,
     val bgUrl: String,
+    val color: Color,
     val chips: List<String>
 )
 
@@ -63,18 +69,21 @@ val movies = listOf(
         title = "Good Boys",
         posterUrl = "https://m.media-amazon.com/images/M/MV5BMTc1NjIzODAxMF5BMl5BanBnXkFtZTgwMTgzNzk1NzM@._V1_.jpg",
         bgUrl = "https://m.media-amazon.com/images/M/MV5BMTc1NjIzODAxMF5BMl5BanBnXkFtZTgwMTgzNzk1NzM@._V1_.jpg",
+        color = Color.Red,
         chips = listOf("Action", "Drama", "History")
     ),
     Movie(
         title = "Joker",
         posterUrl = "https://i.etsystatic.com/15963200/r/il/25182b/2045311689/il_794xN.2045311689_7m2o.jpg",
         bgUrl = "https://images-na.ssl-images-amazon.com/images/I/61gtGlalRvL._AC_SY741_.jpg",
+        color = Color.Blue,
         chips = listOf("Action", "Drama", "History")
     ),
     Movie(
         title = "The Hustle",
         posterUrl = "https://m.media-amazon.com/images/M/MV5BMTc3MDcyNzE5N15BMl5BanBnXkFtZTgwNzE2MDE0NzM@._V1_.jpg",
         bgUrl = "https://m.media-amazon.com/images/M/MV5BMTc3MDcyNzE5N15BMl5BanBnXkFtZTgwNzE2MDE0NzM@._V1_.jpg",
+        color = Color.Yellow,
         chips = listOf("Action", "Drama", "History")
     )
 )
@@ -106,11 +115,20 @@ fun Screen() {
             )
     ) {
         movies.forEachIndexed { index, movie ->
-            val opacity = if (indexFraction.roundToInt() == index) 1f else 0f
+            val isInRange = (index >= indexFraction -1 && indexFraction + 1 >= index)
+            val opacity = if(isInRange) 1f else 0f
+            val shape = when {
+                !isInRange -> RectangleShape
+                else -> FractionRectangleShape(index - indexFraction, index + 1 - indexFraction)
+            }
             CoilImage(
                 data = movie.bgUrl,
                 modifier = Modifier
-                    .drawOpacity(opacity)
+                    .drawLayer(
+                        alpha = opacity,
+                        shape = shape,
+                        clip = true
+                    )
                     .fillMaxWidth()
                     .aspectRatio(posterAspectRatio)
             )
@@ -128,12 +146,29 @@ fun Screen() {
             MoviePoster(
                 movie = movie,
                 modifier = Modifier
-                    .offset(getX = { center + offset }, getY = { lerp(0f, -50f, distFromCenter) })
+                    .offset(getX = { center + offset }, getY = { lerp(0f, 50f, distFromCenter) })
                     .width(screenWidth * .75f)
                     .align(Alignment.BottomCenter)
             )
         }
     }
+}
+
+fun FractionRectangleShape(startFraction: Float, endFracion: Float) = object : Shape {
+    override fun createOutline(size: Size, density: Density): Outline {
+        return Outline.Rectangle(Rect(
+            top = 0f,
+            left = startFraction * size.width,
+            bottom = size.height,
+            right = startFraction * size.width
+
+        ))
+    }
+
+}
+
+fun lerp(start: Float, stop: Float, fraction: Float): Float {
+    return (1 - fraction) * start + fraction * stop
 }
 
 fun Modifier.verticalGradient(vararg colors: ColorStop) = this then object : DrawModifier,
