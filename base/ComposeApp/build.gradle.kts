@@ -14,7 +14,8 @@ android {
     }
 
     dynamicFeatures = mutableSetOf(
-        AppModule.FEATURE_MOVIE
+        AppModule.FEATURE_MOVIE,
+        AppModule.FEATURE_PROJECT_MANAGEMENT
     )
 }
 

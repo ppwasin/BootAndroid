@@ -10,12 +10,13 @@ object AppModule {
 	const val APP = ":app"
 	const val LIB_DYNAMIC_FEATURE = ":dynamicFeature"
 	const val LIB_CORE_UI = ":coreUi"
-	const val CORE_COMPOSE = ":base:ComposeApp"
+	const val BASE_COMPOSE = ":base:ComposeApp"
 	const val FEATURE_SEARCH = ":features:featureSearch"
 	const val FEATURE_CHAT = ":features:featureChat"
 	const val FEATURE_ENTRIES = ":features:featureEntries"
 	const val FEATURE_ENTRYPOINT = ":features:entrypoint"
 	const val FEATURE_MOVIE = ":features:movie"
+	const val FEATURE_PROJECT_MANAGEMENT = ":features:projectMgr"
 
 
 	// False positive" function can be private"

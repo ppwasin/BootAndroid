@@ -1,20 +1,20 @@
 plugins {
-	moduleDFM()
-	kotlinAndroid()
-	kotlinExt()
-	kotlinKapt()
+    moduleDFM()
+    kotlinAndroid()
+    kotlinExt()
+    kotlinKapt()
 }
 
 android {
-	configureDFM {
-		addRoomConfig(projectDir)
-	}
+    configureDFM {
+        addRoomConfig(projectDir)
+    }
 
-	configureCompose()
+    configureCompose()
 }
 
 dependencies {
-	implementation(fileTree(mapOf("include" to listOf("*.jar"), "dir" to "libs")))
+    implementation(fileTree(mapOf("include" to listOf("*.jar"), "dir" to "libs")))
 //	implementation(project(AppModule.APP))
     implementation(project(AppModule.BASE_COMPOSE))
 

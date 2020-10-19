@@ -2,10 +2,15 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/compose_nav_graph"
-    app:startDestination="@id/movie">
+    app:startDestination="@id/project">
     <activity
         android:id="@+id/movie"
         android:name="com.boot.movie.MovieActivity"
         android:label="Movie"
         app:moduleName="movie" />
+    <activity
+        android:id="@+id/project"
+        android:name="com.boot.projectMgr.ProjectManagementActivity"
+        android:label="projectMgr"
+        app:moduleName="projectMgr" />
 </navigation>
