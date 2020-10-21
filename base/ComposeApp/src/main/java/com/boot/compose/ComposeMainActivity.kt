@@ -14,7 +14,7 @@ class ComposeMainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val navController = binding.navHost.getNavCtrl(this)
         if (savedInstanceState == null && navController != null) {
-            navController.navigate(R.id.project)
+//            navController.navigate(R.id.project)
             finish()
         }
     }
