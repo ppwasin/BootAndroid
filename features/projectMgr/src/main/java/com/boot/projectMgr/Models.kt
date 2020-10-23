@@ -1,10 +1,12 @@
 package com.boot.projectMgr
 
-enum class Status {
-    New,
-    InProgress,
-    Review,
-    Done,
+import androidx.compose.ui.graphics.Color
+
+enum class Status(val color: Color) {
+    New(Color(0xFF2CC09C)),
+    InProgress(Color(0xFFF26950)),
+    Review(Color.Red),
+    Done(Color(0xFF5A55CA)),
 }
 
 class Project(
@@ -13,6 +15,7 @@ class Project(
     val date: String,
     val days: Int,
     val status: Status,
+    val progress: Float,
     val users: List<User>,
     val tasks: List<Task>,
 )
@@ -53,6 +56,7 @@ val mockProject = Project(
     date = "Dec 18, 2019",
     days = 3,
     status = Status.InProgress,
+    progress = 0.85f,
     users = listOf(mary, sarah, zachary),
     tasks = listOf(
         Task(
