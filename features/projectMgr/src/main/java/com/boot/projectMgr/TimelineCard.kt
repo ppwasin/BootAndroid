@@ -42,6 +42,8 @@ fun TimelineRow(
         }
     }) { (left, right), constraint ->
         val leftWidth = linePosition.toIntPx()
+
+        //remove with leftWidth because, right children default to full width
         val placeRight = right.measure(
             Constraints(
                 minWidth = (constraint.minWidth - leftWidth).coerceAtLeast(0),
