@@ -2,11 +2,11 @@ package com.boot.projectMgr
 
 import androidx.compose.ui.graphics.Color
 
-enum class Status(val color: Color) {
-    New(Color(0xFF2CC09C)),
-    InProgress(Color(0xFFF26950)),
-    Review(Color.Red),
-    Done(Color(0xFF5A55CA)),
+enum class Status(val color: Color, val label: String) {
+    New(Color(0xFF2CC09C), "New"),
+    InProgress(Color(0xFFF26950), "In Progress"),
+    Review(Color.Red, "Review"),
+    Done(Color(0xFF5A55CA), "Done"),
 }
 
 class Project(
@@ -24,7 +24,7 @@ class User(
     val id: Int,
     val name: String,
 ) {
-    fun imageUrlForSize(size: Int) = "https://www.gravatar.com/avatar/$id"
+    fun imageUrlForSize(size: Int) = "https://i.pravatar.cc/$size?img=$id"
 }
 
 class Task(
