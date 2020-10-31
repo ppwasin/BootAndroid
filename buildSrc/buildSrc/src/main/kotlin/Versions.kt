@@ -41,7 +41,9 @@ object Versions {
 	//Utils
 	const val bottomNavigator = "1.6"
 
-	const val compose = "1.0.0-alpha05"
+	const val compose = "1.0.0-alpha06"
+	const val composeNav = "1.0.0-alpha01"
+	const val composePaging = "1.0.0-alpha01"
 	const val composeRouter = "0.19.0"
-	const val composeAppComponist = "0.2.2"
+	const val composeAppComponist = "0.3.2"
 }

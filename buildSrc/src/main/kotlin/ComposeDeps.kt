@@ -33,4 +33,6 @@ fun DependencyHandlerScope.addComposeDeps() {
 	addImplementation("androidx.ui:ui-tooling:${Versions.compose}")
 	addImplementation("com.github.zsoltk:compose-router:${Versions.composeRouter}")
 	addImplementation("dev.chrisbanes.accompanist:accompanist-coil:${Versions.composeAppComponist}")
+	addImplementation("androidx.navigation:navigation-compose:${Versions.composeNav}")
+	addImplementation("androidx.paging:paging-compose:${Versions.composePaging}")
 }
