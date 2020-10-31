@@ -1,5 +1,6 @@
 package com.boot.projectMgr
 
+import android.graphics.DashPathEffect
 import androidx.compose.foundation.Icon
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.background
@@ -14,19 +15,65 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Layout
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.drawBehind
-import androidx.compose.ui.geometry.toRect
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
 
 val linePosition = 80.dp
+val timelineDotSize = 8.dp
+val dashPathEffect = DashPathEffect(floatArrayOf(20f, 10f), 0f)
 
-fun Modifier.drawLine() = this.drawBehind {
-    drawLine(Color.Black, start = size.toRect().topRight, end = size.toRect().bottomRight, 4f)
+enum class LineState(val color: Color, val stroke: Stroke) {
+    Undefined(Color.Gray, Stroke(width = 1f, pathEffect = dashPathEffect)), // dotted line
+    In(Color.White, Stroke(width = 8f)), // solid white
+    Out(Color.Gray, Stroke(width = 2f)) // solid gray
+}
+
+fun Modifier.drawLine(
+    status: Status?,
+    top: LineState,
+    bottom: LineState,
+) = this.drawBehind {
+    val centerPosition = Offset(x = size.width, y = size.height / 2f)
+    val topRight = Offset(size.width, 0f)
+    val bottomRight = Offset(size.width, size.height)
+    // Line Top
+    drawLine(
+        color = top.color,
+        start = topRight,
+        end = centerPosition,
+        strokeWidth = top.stroke.width,
+        pathEffect = top.stroke.pathEffect
+    )
+    // Line Bottom
+    drawLine(
+        color = bottom.color,
+        start = centerPosition,
+        end = bottomRight,
+        strokeWidth = bottom.stroke.width,
+        pathEffect = bottom.stroke.pathEffect
+    )
+    if (status != null) {
+        drawCircle(
+            Color.White,
+            radius = timelineDotSize.toPx(),
+            center = centerPosition
+        )
+        drawCircle(
+            status.color,
+            radius = (timelineDotSize - 2.dp).toPx(),
+            center = centerPosition
+        )
+    }
 }
 
 @Composable
 fun TimelineRow(
+    status: Status?,
+    topLineState: LineState,
+    bottomLineState: LineState,
     leftContent: @Composable () -> Unit,
     rightContent: @Composable () -> Unit,
 ) {
@@ -34,7 +81,7 @@ fun TimelineRow(
         Row(
             Modifier
                 .padding(end = 16.dp)
-                .drawLine(),
+                .drawLine(status, topLineState, bottomLineState),
             verticalAlignment = Alignment.CenterVertically
         ) { leftContent() }
         Row {
@@ -66,6 +113,9 @@ fun TimelineRow(
 @Composable
 fun TimelineHeader() {
     TimelineRow(
+        status = null,
+        topLineState = LineState.Undefined,
+        bottomLineState = LineState.Undefined,
         leftContent = { Text("Data") }
     ) {
         Text("Tasks")
@@ -75,8 +125,17 @@ fun TimelineHeader() {
 }
 
 @Composable
-fun TimelineTask(task: Task) {
-    TimelineRow(leftContent = { Text(task.timeCode) }) {
+fun TimelineTask(
+    task: Task,
+    topLineState: LineState,
+    bottomLineState: LineState,
+) {
+    TimelineRow(
+        status = task.status,
+        topLineState = topLineState,
+        bottomLineState = bottomLineState,
+        leftContent = { Text(task.timeCode) }
+    ) {
         Column(
             Modifier
                 .padding(vertical = 8.dp)
