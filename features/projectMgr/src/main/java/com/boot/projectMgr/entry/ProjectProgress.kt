@@ -1,4 +1,4 @@
-package com.boot.projectMgr
+package com.boot.projectMgr.entry
 
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.Box

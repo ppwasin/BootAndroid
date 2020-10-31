@@ -10,7 +10,7 @@
         app:moduleName="movie" />
     <activity
         android:id="@+id/project"
-        android:name="com.boot.projectMgr.ProjectManagementActivity"
+        android:name="com.boot.projectMgr.entry.ProjectManagementActivity"
         android:label="projectMgr"
         app:moduleName="projectMgr" />
 </navigation>

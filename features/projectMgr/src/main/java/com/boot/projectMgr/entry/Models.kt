@@ -1,4 +1,4 @@
-package com.boot.projectMgr
+package com.boot.projectMgr.entry
 
 import androidx.compose.ui.graphics.Color
 

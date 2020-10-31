@@ -1,4 +1,4 @@
-package com.boot.projectMgr
+package com.boot.projectMgr.entry
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.setContent
 import androidx.ui.tooling.preview.Preview
+import com.boot.projectMgr.createTask.CreateTaskScreen
 import com.boot.projectMgr.ui.BootAndroidTheme
 
 class ProjectManagementActivity : AppCompatActivity() {
@@ -17,7 +18,8 @@ class ProjectManagementActivity : AppCompatActivity() {
             BootAndroidTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    TimelineScreen()
+                    //                    TimelineScreen()
+                    CreateTaskScreen()
                 }
             }
         }
