@@ -7,10 +7,12 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.boot.compose.databinding.ComposeMainBinding
 
+//TODO: Auto use this module for host app without recreate host app for all feature modules
 class ComposeMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ComposeMainBinding.inflate(layoutInflater)
+        BuildConfig.APPLICATION_ID
         setContentView(binding.root)
         val navController = binding.navHost.getNavCtrl(this)
         if (savedInstanceState == null && navController != null) {

@@ -14,9 +14,10 @@ android {
     }
 
     dynamicFeatures = mutableSetOf(
-        AppModule.FEATURE_MOVIE,
-        AppModule.FEATURE_PROJECT_MANAGEMENT
+        AppModule.FeatureMovie.buildGradlePath,
+        AppModule.FeatureProjectMgr.buildGradlePath
     )
+    setModuleVariableOnAllBuildTypes()
 }
 
 dependencies {

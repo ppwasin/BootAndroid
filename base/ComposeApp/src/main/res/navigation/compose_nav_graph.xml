@@ -7,10 +7,10 @@
         android:id="@+id/movie"
         android:name="com.boot.movie.MovieActivity"
         android:label="Movie"
-        app:moduleName="movie" />
+        app:moduleName="@string/AppModule_FeatureMovie" />
     <activity
         android:id="@+id/project"
         android:name="com.boot.projectMgr.entry.ProjectManagementActivity"
         android:label="projectMgr"
-        app:moduleName="projectMgr" />
+        app:moduleName="@string/AppModule_FeatureProjectMgr" />
 </navigation>

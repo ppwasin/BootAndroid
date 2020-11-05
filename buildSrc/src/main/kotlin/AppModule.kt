@@ -1,32 +1,48 @@
-import kotlin.reflect.full.memberProperties
+import com.android.build.gradle.BaseExtension
 
-//import kotlin.reflect.full.memberProperties
 private const val FEATURE_PREFIX = ":features"
 
-// "Module" means "project" in terminology of Gradle API. To be specific each "Android module" is a Gradle "subproject"
-@Suppress("unused")
-object AppModule {
-	// All consts are accessed via reflection
-	const val APP = ":app"
-	const val LIB_DYNAMIC_FEATURE = ":dynamicFeature"
-	const val LIB_CORE_UI = ":coreUi"
-	const val BASE_COMPOSE = ":base:ComposeApp"
-	const val FEATURE_SEARCH = ":features:featureSearch"
-	const val FEATURE_CHAT = ":features:featureChat"
-	const val FEATURE_ENTRIES = ":features:featureEntries"
-	const val FEATURE_ENTRYPOINT = ":features:entrypoint"
-	const val FEATURE_MOVIE = ":features:movie"
-	const val FEATURE_PROJECT_MANAGEMENT = ":features:projectMgr"
+enum class AppModule(val prefix: String, val actualName: String) {
+    App(prefix = ":", actualName = "app"),
+    CoreDynamicFeature(prefix = ":", actualName = "dynamicFeature"),
+    CoreUi(prefix = ":", actualName = "coreUi"),
+    BaseCompose(prefix = ":base", actualName = "ComposeApp"),
+    FeatureSearch(prefix = FEATURE_PREFIX, actualName = "featureSearch"),
+    FeatureChat(prefix = FEATURE_PREFIX, actualName = "featureChat"),
+    FeatureEntries(prefix = FEATURE_PREFIX, actualName = "entrypoint"),
+    FeatureMovie(prefix = FEATURE_PREFIX, actualName = "movie"),
+    FeatureProjectMgr(prefix = FEATURE_PREFIX, actualName = "projectMgr");
 
+    val buildGradlePath = "$prefix:$actualName"
 
-	// False positive" function can be private"
-	// See: https://youtrack.jetbrains.com/issue/KT-33610
-	fun getAllModules() = AppModule::class.memberProperties
-		.filter { it.isConst }
-		.map { it.getter.call().toString() }
-		.toSet()
+    companion object {
+        private val allModules = values().map(AppModule::buildGradlePath)
+        val dynamicFeatureModules = allModules
+            .filter { it.startsWith(FEATURE_PREFIX) }
+            .toMutableSet()
+    }
+}
 
-	fun getDynamicFeatureModules() = getAllModules()
-		.filter { it.startsWith(FEATURE_PREFIX) }
-		.toMutableSet()
+fun BaseExtension.setModuleVariableOnAllBuildTypes() {
+    defaultConfig {
+        AppModule.values()
+            .forEach { module ->
+                val moduleVariable = "AppModule_" + module.name
+                val moduleName = module.actualName
+                buildConfigField("String", moduleVariable, "\"$moduleName\"")
+                resValue("string", moduleVariable, moduleName)
+            }
+    }
+//	buildTypes {
+//		buildTypes.forEach { buildType ->
+//			AppModule
+//				.getAllModuleProperties()
+//				.forEach { prop ->
+//					val moduleVariable = "AppModule_" + prop.name
+//					val moduleName = prop.getter.call().toString().removePrefix(":")
+//					buildType.buildConfigField("String", moduleVariable, moduleName)
+//					buildType.resValue("String", moduleVariable, moduleName)
+//				}
+//		}
+//	}
 }

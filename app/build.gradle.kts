@@ -29,14 +29,14 @@ android {
 		}
 	}
 
-	dynamicFeatures = AppModule.getDynamicFeatureModules()
+	dynamicFeatures = AppModule.dynamicFeatureModules
 }
 
 dependencies {
 //	println(com.plugin.AppPlugin.someString)
 	implementation(fileTree(mapOf("include" to listOf("*.jar"), "dir" to "libs")))
-	implementation(project(AppModule.LIB_DYNAMIC_FEATURE))
-	implementation(project(AppModule.LIB_CORE_UI))
+	implementation(project(AppModule.CoreDynamicFeature.buildGradlePath))
+	implementation(project(AppModule.CoreUi.buildGradlePath))
 	testImplementation(Libs.jUnit)
 	androidTestImplementation(Libs.androidTextExt)
 	androidTestImplementation(Libs.expresso)

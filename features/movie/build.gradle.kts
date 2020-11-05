@@ -16,7 +16,7 @@ android {
 dependencies {
 	implementation(fileTree(mapOf("include" to listOf("*.jar"), "dir" to "libs")))
 //	implementation(project(AppModule.APP))
-    implementation(project(AppModule.BASE_COMPOSE))
+    implementation(project(AppModule.BaseCompose.buildGradlePath))
 
     implementation(Libs.timber)
     implementation(Libs.kotlinStd)
@@ -24,7 +24,7 @@ dependencies {
     implementation(Libs.coroutineAndroid)
     implementation(Libs.appCompat)
     implementation(Libs.googleMaterial)
-    addImplementation(Libs.playCore)
+    implementation(Libs.playCore)
     addComposeDeps()
 
 }

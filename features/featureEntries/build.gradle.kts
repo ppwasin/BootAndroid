@@ -14,9 +14,9 @@ android {
 
 dependencies {
 	implementation(fileTree(mapOf("include" to listOf("*.jar"), "dir" to "libs")))
-	implementation(project(AppModule.APP))
-	implementation(project(AppModule.LIB_CORE_UI))
+    implementation(project(AppModule.App.buildGradlePath))
+    implementation(project(AppModule.CoreUi.buildGradlePath))
 
-	addCoreFeatureDeps()
-	addNetwork()
+    addCoreFeatureDeps()
+    addNetwork()
 }

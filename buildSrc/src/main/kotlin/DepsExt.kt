@@ -4,7 +4,6 @@ import org.gradle.api.JavaVersion
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import java.io.File
 
-
 fun BaseExtension.configureApp(
     id: String,
     extDefaultConfig: DefaultConfig.() -> Unit = {}
@@ -43,7 +42,6 @@ fun BaseExtension.configureAndroidLib(extDefaultConfig: DefaultConfig.() -> Unit
     }
     compileOptions()
 }
-
 
 fun BaseExtension.configureDFM(extDefaultConfig: DefaultConfig.() -> Unit = {}) {
     compileSdkVersion(AndroidSdk.compile)
@@ -132,14 +130,13 @@ fun DependencyHandlerScope.addTimber() {
 
 fun DependencyHandlerScope.addDate() {
     addImplementation(Libs.jakeThreetenabp)
-//	testImplementation('org.threeten:threetenbp:1.2.1') {
-//		exclude module: 'com.jakewharton.threetenabp:threetenabp:1.2.1'
-//	}
-//	"testImplementation"(Libs.threetenabp) {
-//		"exclude module:"(Libs.jakeThreetenabp)
-//	}
+    //	testImplementation('org.threeten:threetenbp:1.2.1') {
+    //		exclude module: 'com.jakewharton.threetenabp:threetenabp:1.2.1'
+    //	}
+    //	"testImplementation"(Libs.threetenabp) {
+    //		"exclude module:"(Libs.jakeThreetenabp)
+    //	}
 }
-
 
 fun DependencyHandlerScope.addCoreFeatureDeps() {
     addImplementation(Libs.kotlinStd)
