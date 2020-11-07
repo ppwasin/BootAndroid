@@ -1,14 +1,15 @@
 object Versions {
+	
 	const val kotlin = "1.4.10"
-	const val androidGradle = "4.2.0-alpha15"
+	const val androidGradle = "4.2.0-alpha16"
 	const val googleService = "4.3.3"
 	const val fabric = "1.31.0"
-
+	
 	//Alpha for propagate ViewTreeLifecycleOwner from main to dynamic feature (Compose)
 	const val appCompat = "1.3.0-alpha01"
 	const val activity = "1.2.0-alpha07"
 	const val fragment = "1.3.0-alpha07"
-
+	
 	const val materialUi = "1.2.0"
 	const val coreKtx = "1.2.0"
 	const val constraintlayout = "2.0.2"
