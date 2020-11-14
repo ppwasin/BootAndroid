@@ -9,7 +9,7 @@ object Versions {
 	const val appCompat = "1.3.0-alpha02"
 	const val activity = "1.2.0-alpha08"
 	const val fragment = "1.3.0-alpha08"
-	
+
 	const val materialUi = "1.2.1"
 	const val coreKtx = "1.2.0"
 	const val constraintlayout = "2.0.4"
@@ -29,11 +29,11 @@ object Versions {
 
 	const val coroutine = "1.4.1"
 	const val moshi = "1.11.0"
-	const val okHttp = "0.3.3.1"
+	const val okHttp = "4.9.0"
 	const val autoService = "1.0-rc7"
 	const val timber = "4.7.1"
 	const val stetho = "1.5.1"
-	
+
 	const val mockk = "1.9.3"
 	const val espresso = "3.3.0"
 	const val junit = "4.13.1"

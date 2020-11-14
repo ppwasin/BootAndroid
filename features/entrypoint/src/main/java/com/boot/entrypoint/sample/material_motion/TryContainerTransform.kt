@@ -1,5 +1,6 @@
 package com.boot.entrypoint.sample.material_motion
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.core.AnimationConstants
 import androidx.compose.animation.core.FloatPropKey
 import androidx.compose.animation.core.keyframes
@@ -9,8 +10,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Layout
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.util.annotation.IntRange
 import timber.log.Timber
 import java.util.*
@@ -125,6 +126,7 @@ fun VerticalTransform(
 }
 
 
+@SuppressLint("Range")
 fun createContainerDefinition(
 	smallSize: Float,
 	bigSize: Float,

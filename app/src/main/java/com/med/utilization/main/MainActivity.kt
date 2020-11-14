@@ -2,7 +2,6 @@ package com.med.utilization.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.med.utilization.R
 import com.med.utilization.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -22,14 +21,14 @@ class MainActivity : AppCompatActivity() {
 		setContentView(binding.root)
 		with(binding) {
 			val navController = frameContentMain.getNavCtrl(this@MainActivity)
-			if (savedInstanceState == null && navController != null) {
+//			if (savedInstanceState == null && navController != null) {
 //				btmNavMain.setupWithNavController(navController)
 //				btmNavMain.itemIconTintList = null //Can't set on XML because it's not working on the API >= 26
 
-				navController.navigate(R.id.nav_entrypoint)
-				finish()
+//				navController.navigate(R.id.nav_health_timeline)
+//				finish()
 
-			}
+//			}
 
 		}
 

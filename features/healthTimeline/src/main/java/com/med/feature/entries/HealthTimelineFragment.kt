@@ -17,7 +17,7 @@ import com.med.utilization.di.getAppComponent
 import javax.inject.Inject
 import javax.inject.Provider
 
-class EntriesFragment : Fragment(R.layout.entries) {
+class HealthTimelineFragment : Fragment(R.layout.entries) {
 	@Inject
 	lateinit var vmFactoryProvider: Provider<EntriesViewModel.Factory>
 	private val viewModel: EntriesViewModel by savedStateViewModelWithProvider {

@@ -2,25 +2,16 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_nav_graph.xml"
-    app:startDestination="@id/nav_home">
+    app:startDestination="@id/nav_health_timeline">
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.med.feature.entries.EntriesFragment"
-        app:moduleName="featureEntries" />
+        android:id="@+id/nav_health_timeline"
+        android:name="com.med.feature.entries.HealthTimelineFragment"
+        app:moduleName="@string/AppModule_FeatureHealthTimeline" />
+
     <fragment
         android:id="@+id/nav_search"
         android:name="com.med.feature.search.SearchFragment"
-        app:moduleName="featureSearch" />
-    <fragment
-        android:id="@+id/nav_chat"
-        android:name="com.boot.entrypoint.EntryFragment"
-        app:moduleName="entrypoint" />
-    <activity
-        android:id="@+id/nav_entrypoint"
-        android:name="com.boot.movie.MovieActivity"
-        app:moduleName="movie" />
-    <!--    <activity-->
-    <!--        android:id="@+id/nav_entrypoint"-->
-    <!--        android:name="com.boot.entrypoint.EntryActivity"-->
-    <!--        app:moduleName="entrypoint" />-->
+        app:moduleName="@string/AppModule_FeatureSearch" />
+
+
 </navigation>

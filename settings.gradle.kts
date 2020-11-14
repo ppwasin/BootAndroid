@@ -24,7 +24,7 @@ rootProject.name = "BootAndroid"
 rootProject.buildFileName = "build.gradle.kts"
 
 /*
-./gradlew app:installBetaDebug -Pinclude="app|dynamicFeature|coreUi|features:featureSearch|features:featureChat|features:featureEntries|features:entrypoint"
+./gradlew app:installBetaDebug -Pinclude="app|dynamicFeature|coreUi|features:featureSearch|features:featureEntries|features:entrypoint"
 */
 //val modules = allModules
 //	.filter { shouldInclude(include, it) }

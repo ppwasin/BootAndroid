@@ -29,7 +29,11 @@ android {
 		}
 	}
 
-	dynamicFeatures = AppModule.dynamicFeatureModules
+	dynamicFeatures = mutableSetOf(
+		AppModule.FeatureHealthTimeline.buildGradlePath,
+		AppModule.FeatureSearch.buildGradlePath
+	)
+	setModuleVariableOnAllBuildTypes()
 }
 
 dependencies {

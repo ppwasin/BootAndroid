@@ -3,15 +3,29 @@ import com.android.build.gradle.BaseExtension
 private const val FEATURE_PREFIX = ":features"
 
 enum class AppModule(val prefix: String, val actualName: String) {
-    App(prefix = ":", actualName = "app"),
     CoreDynamicFeature(prefix = ":", actualName = "dynamicFeature"),
     CoreUi(prefix = ":", actualName = "coreUi"),
-    BaseCompose(prefix = ":base", actualName = "ComposeApp"),
-    FeatureSearch(prefix = FEATURE_PREFIX, actualName = "featureSearch"),
-    FeatureChat(prefix = FEATURE_PREFIX, actualName = "featureChat"),
-    FeatureEntries(prefix = FEATURE_PREFIX, actualName = "entrypoint"),
-    FeatureMovie(prefix = FEATURE_PREFIX, actualName = "movie"),
-    FeatureProjectMgr(prefix = FEATURE_PREFIX, actualName = "projectMgr");
+
+    App(prefix = ":", actualName = "app"),
+    FeatureHealthTimeline(
+        prefix = FEATURE_PREFIX,
+        actualName = "healthTimeline"
+    ), //#XML #Dagger #AssistedInject #DFM
+    FeatureSearch(
+        prefix = FEATURE_PREFIX,
+        actualName = "search"
+    ), //#XML #Dagger #AssistedInject #DFM
+
+    BaseCompose(prefix = ":base", actualName = "ComposeApp"), //#Compose
+    FeatureEntries(
+        prefix = FEATURE_PREFIX,
+        actualName = "entrypoint"
+    ), //#Compose 1st try - TODO use jetpack nav
+    FeatureMovie(prefix = FEATURE_PREFIX, actualName = "movie"), //#Compose #Reyland - InProgress
+    FeatureProjectMgr(
+        prefix = FEATURE_PREFIX,
+        actualName = "projectMgr"
+    ); //#Compose #Reyland - InProgress
 
     val buildGradlePath = "$prefix:$actualName"
 
