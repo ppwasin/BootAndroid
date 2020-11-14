@@ -114,7 +114,7 @@ fun DependencyHandlerScope.addNetwork() {
     addImplementation("com.squareup.retrofit2:converter-moshi:${Versions.retrofit}")
     addImplementation("com.squareup.moshi:moshi:${Versions.moshi}")
     addImplementation("com.squareup.moshi:moshi-kotlin:${Versions.moshi}")
-    addImplementation("com.squareup.okhttp3:logging-interceptor:4.8.0")
+    addImplementation("com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}")
     addImplementation("com.facebook.stetho:stetho:${Versions.stetho}")
     addImplementation("com.facebook.stetho:stetho-okhttp3:${Versions.stetho}")
 }

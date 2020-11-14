@@ -38,7 +38,7 @@ object Libs {
 	const val moshiAdapter = "com.squareup.moshi:moshi-adapters:${Versions.moshi}"
 
 	//Date
-	const val jakeThreetenabp = "com.jakewharton.threetenabp:threetenabp:1.2.4"
+	const val jakeThreetenabp = "com.jakewharton.threetenabp:threetenabp:1.3.0"
 //	const val threetenabp = "org.threeten:threetenbp:1.2.1"
 
 	//Debug
@@ -96,7 +96,7 @@ object Libs {
 
 	//Testing
 	const val jUnit = "junit:junit:${Versions.junit}"
-	const val androidTextExt = "androidx.test.ext:junit:1.1.1"
-	const val expresso = "androidx.test.espresso:espresso-core:3.2.0"
+	const val androidTextExt = "androidx.test.ext:junit:${Versions.androidJunit}"
+	const val expresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
 
 }
