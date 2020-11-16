@@ -16,7 +16,7 @@ android {
 
 dependencies {
 	implementation(fileTree(mapOf("include" to listOf("*.jar"), "dir" to "libs")))
-    implementation(project(AppModule.App.buildGradlePath))
+    implementation(project(AppModule.BaseCompose.buildGradlePath))
 
     implementation(Libs.timber)
     implementation(Libs.kotlinStd)

@@ -16,7 +16,7 @@
     <application>
         <activity
             android:name=".EntryActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            />
     </application>
 
 </manifest>

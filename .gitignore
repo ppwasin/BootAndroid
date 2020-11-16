@@ -58,7 +58,6 @@ gen-external-apklibs
 ### Gradle ###
 .gradle
 /execute/
-gradle.properties
 
 # Ignore Gradle GUI connectorProvider
 gradle-app.setting
