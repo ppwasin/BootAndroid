@@ -11,13 +11,13 @@ import com.med.coreui.observeNotNull
 import com.med.coreui.recycleview.LiveItems
 import com.med.coreui.recycleview.viewbinding.ViewBindingAdapter
 import com.med.coreui.savedStateViewModelWithProvider
-import com.med.feature.entries.databinding.EntriesBinding
+import com.med.feature.entries.databinding.TimelineBinding
 import com.med.feature.entries.di.DaggerEntriesComponent
 import com.med.utilization.di.getAppComponent
 import javax.inject.Inject
 import javax.inject.Provider
 
-class HealthTimelineFragment : Fragment(R.layout.entries) {
+class HealthTimelineFragment : Fragment(R.layout.timeline) {
 	@Inject
 	lateinit var vmFactoryProvider: Provider<EntriesViewModel.Factory>
 	private val viewModel: EntriesViewModel by savedStateViewModelWithProvider {
@@ -27,7 +27,7 @@ class HealthTimelineFragment : Fragment(R.layout.entries) {
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
-		val binding = EntriesBinding.bind(view)
+		val binding = TimelineBinding.bind(view)
 		setupRecyclerView(binding.entryRv, viewModel.getItems())
 	}
 
