@@ -1,21 +1,21 @@
-import org.gradle.kotlin.dsl.DependencyHandlerScope
+import org.gradle.api.artifacts.dsl.DependencyHandler
 
-fun DependencyHandlerScope.addImplementation(notation: String) {
+fun DependencyHandler.addImplementation(notation: String) {
 	add("implementation", notation)
 }
 
-fun DependencyHandlerScope.addAndroidTestImplementation(notation: String) {
+fun DependencyHandler.addAndroidTestImplementation(notation: String) {
 	add("androidTestImplementation", notation)
 }
 
-fun DependencyHandlerScope.addKapt(notation: String) {
+fun DependencyHandler.addKapt(notation: String) {
 	add("kapt", notation)
 }
 
-fun DependencyHandlerScope.addKaptAndroidTest(notation: String) {
+fun DependencyHandler.addKaptAndroidTest(notation: String) {
 	add("kaptAndroidTest", notation)
 }
 
-fun DependencyHandlerScope.addCompileOnly(notation: String) {
+fun DependencyHandler.addCompileOnly(notation: String) {
 	add("compileOnly", notation)
 }

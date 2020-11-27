@@ -1,3 +1,4 @@
+apply<plugin.JetpackComposePlugin>()
 plugins {
 	moduleDFM()
 	kotlinAndroid()
@@ -10,7 +11,7 @@ android {
 		addRoomConfig(projectDir)
 	}
 
-	configureCompose()
+//	configureCompose()
 
 }
 
@@ -25,6 +26,6 @@ dependencies {
     implementation(Libs.appCompat)
     implementation(Libs.googleMaterial)
     addImplementation(Libs.playCore)
-    addComposeDeps()
+//    addComposeDeps()
 
 }

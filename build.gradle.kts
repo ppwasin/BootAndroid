@@ -34,12 +34,9 @@ subprojects {
         kotlinOptions {
             jvmTarget = JavaVersion.VERSION_1_8.toString()
             freeCompilerArgs = freeCompilerArgs + listOf(
-                "-Xallow-jvm-ir-dependencies",
-                "-Xskip-prerelease-check",
                 "-Xopt-in=kotlin.RequiresOptIn",
                 "-Xopt-in=kotlin.OptIn",
-                "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
-                "-Xuse-experimental=androidx.compose.animation.ExperimentalAnimationApi"
+                "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi"
             )
         }
     }

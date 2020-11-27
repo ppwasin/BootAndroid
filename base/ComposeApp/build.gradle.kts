@@ -1,3 +1,5 @@
+apply<plugin.JetpackComposePlugin>()
+
 plugins {
     moduleApp()
     kotlinAndroid()
@@ -46,5 +48,5 @@ dependencies {
     OR
     https://medium.com/pulselive/a-quick-look-at-feature-on-feature-dependencies-in-android-gradle-plugin-4-0-0-5828915d02d3
     * */
-    addComposeDeps()
+//    addComposeDeps()
 }
