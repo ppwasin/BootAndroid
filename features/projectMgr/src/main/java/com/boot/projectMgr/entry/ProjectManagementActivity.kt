@@ -31,6 +31,7 @@ class ProjectManagementActivity : AppCompatActivity() {
 fun DefaultPreview() {
     BootAndroidTheme {
         Surface(color = MaterialTheme.colors.background) {
+
             TimelineScreen()
         }
     }
