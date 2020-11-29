@@ -1,4 +1,4 @@
-package com.boot.projectMgr
+package com.boot.projectMgr.ex
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ExperimentalComposeApi

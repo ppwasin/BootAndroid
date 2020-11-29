@@ -15,7 +15,7 @@
 
     <application>
         <activity
-            android:name=".entry.ProjectManagementActivity"
+            android:name=".ProjectManagementActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 </manifest>
