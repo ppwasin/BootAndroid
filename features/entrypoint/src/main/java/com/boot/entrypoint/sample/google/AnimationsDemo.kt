@@ -1,12 +1,12 @@
 package com.boot.entrypoint.sample.google
 
 import androidx.compose.foundation.ScrollableColumn
-import androidx.compose.foundation.Text
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -51,6 +51,6 @@ fun AnimationHomeItem(title: String, onClick: () -> Unit) {
 		shape = RoundedCornerShape(4.dp),
 		modifier = Modifier.padding(8.dp).clickable(onClick = onClick)
 	) {
-		Text(text = title, modifier = Modifier.padding(16.dp) + Modifier.fillMaxWidth())
+		Text(text = title, modifier = Modifier.padding(16.dp).fillMaxWidth())
 	}
 }

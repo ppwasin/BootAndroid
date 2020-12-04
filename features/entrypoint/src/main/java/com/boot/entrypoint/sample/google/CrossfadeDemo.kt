@@ -3,11 +3,8 @@ package com.boot.entrypoint.sample.google
 
 import android.util.Log
 import androidx.compose.animation.Crossfade
-import androidx.compose.foundation.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.preferredHeight
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.gesture.tapGestureFilter
@@ -23,19 +20,20 @@ fun CrossfadeDemo() {
 		Row {
 			tabs.forEach { tab ->
 				Box(
-					Modifier.tapGestureFilter(onTap = {
-						Log.e("Crossfade", "Switch to $tab")
-						current = tab
-					})
-						.weight(1f, true)
-						.preferredHeight(48.dp),
-					backgroundColor = tab.color
-				)
+                    Modifier.tapGestureFilter(onTap = {
+                        Log.e("Crossfade", "Switch to $tab")
+                        current = tab
+                    })
+                        .weight(1f, true)
+                        .preferredHeight(48.dp)
+                        .background(color = tab.color)
+
+                )
 			}
 		}
 		Crossfade(current = current) { tab ->
-			tab.lastInt = remember { Random.nextInt() }
-			Box(Modifier.fillMaxSize(), backgroundColor = tab.color)
+            tab.lastInt = remember { Random.nextInt() }
+            Box(Modifier.fillMaxSize().background(color = tab.color))
 		}
 	}
 }

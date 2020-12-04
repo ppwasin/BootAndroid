@@ -1,12 +1,12 @@
 package com.boot.projectMgr.entry
 
-import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.drawWithCache
+import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
@@ -25,10 +25,11 @@ fun ProjectProgressIndicator(
 ) {
     val text = "${(progress * 100).roundToInt()}%"
     val color = status.color
-    Box(modifier
-        .circularProgress(progress, color)
-        .size(48.dp),
-        alignment = Alignment.Center
+    Box(
+        modifier
+            .circularProgress(progress, color)
+            .size(48.dp),
+        contentAlignment = Alignment.Center
     ) {
         Text(text, color = color, fontWeight = FontWeight.Bold)
     }
@@ -41,7 +42,7 @@ fun Modifier.circularProgress(
     primaryColor: Color,
 ) = this.drawWithCache {
     val sweep = progress * 360
-    onDraw {
+    onDrawBehind {
         drawCircularIndicator(
             startAngle = 270f,
             sweep = sweep,

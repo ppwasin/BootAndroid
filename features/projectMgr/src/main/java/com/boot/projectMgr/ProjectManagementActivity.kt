@@ -7,9 +7,8 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.focus.ExperimentalFocus
 import androidx.compose.ui.platform.setContent
-import androidx.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.Preview
 import com.boot.projectMgr.entry.TimelineScreen
-import com.boot.projectMgr.ex.textfield.Playground
 import com.boot.projectMgr.ui.BootAndroidTheme
 
 class ProjectManagementActivity : AppCompatActivity() {
@@ -21,9 +20,9 @@ class ProjectManagementActivity : AppCompatActivity() {
             BootAndroidTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    //                    TimelineScreen()
-                    //                    CreateTaskScreen()
-                    Playground()
+                    TimelineScreen()
+//                                        CreateTaskScreen()
+//                    Playground()
                 }
             }
         }

@@ -21,6 +21,10 @@ fun BaseExtension.configureApp(
     compileOptions()
     configureFavor()
     buildFeatures.viewBinding = true
+    packagingOptions {
+        exclude("META-INF/AL2.0")
+        exclude("META-INF/LGPL2.1")
+    }
 }
 
 fun BaseExtension.configureAndroidLib(extDefaultConfig: DefaultConfig.() -> Unit = {}) {
@@ -40,6 +44,7 @@ fun BaseExtension.configureAndroidLib(extDefaultConfig: DefaultConfig.() -> Unit
             )
         }
     }
+    buildFeatures.viewBinding = true
     compileOptions()
 }
 

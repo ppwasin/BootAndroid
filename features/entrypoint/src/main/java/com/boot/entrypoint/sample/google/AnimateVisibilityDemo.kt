@@ -4,12 +4,12 @@ import androidx.compose.animation.*
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Text
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.material.Button
 import androidx.compose.material.Checkbox
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,7 +29,7 @@ fun AnimatedVisibilityDemo() {
 @Composable
 fun AnimatedItems(animateContentSize: Boolean) {
 	var counter by remember { mutableStateOf(0) }
-	Stack(
+	Box(
 		Modifier.padding(bottom = 20.dp)
 	) {
 		Button(modifier = Modifier.align(Alignment.TopEnd).padding(10.dp),
@@ -83,7 +83,7 @@ fun AnimatedItems(animateContentSize: Boolean) {
 
 @Composable
 fun Item(color: Color, text: String = "") {
-	Stack(Modifier.height(80.dp).fillMaxWidth().background(color)) {
+	Box(Modifier.height(80.dp).fillMaxWidth().background(color)) {
 		Text(
 			text,
 			modifier = Modifier.align(Alignment.CenterStart).padding(start = 10.dp)

@@ -30,18 +30,17 @@ rootProject.buildFileName = "build.gradle.kts"
 //	.filter { shouldInclude(include, it) }
 //	.map { ":$it" }
 //include(*modules.toTypedArray())
-val coreModule = getModules()
-val baseModules = getModules("base")
-val featureModule = getModules("features")
-
-val allModules = (coreModule + baseModules + featureModule)
+val allModules = getModules(null, "base", "features", "playground")
     .filter { shouldInclude(include, it) }
     .toList()
 
 println("All Modules: $allModules")
 include(*allModules.toTypedArray())
 
-fun getModules(path: String? = null): Sequence<String> {
+fun getModules(vararg paths: String?): List<String> =
+    paths.fold(emptyList()) { acc: List<String>, path: String? -> acc + getSingleModules(path) }
+
+fun getSingleModules(path: String? = null): Sequence<String> {
     val dir =
         if (path != null) File(rootDir, path)
         else rootDir

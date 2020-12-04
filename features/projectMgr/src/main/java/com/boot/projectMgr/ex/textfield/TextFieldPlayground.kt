@@ -5,26 +5,14 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.ExperimentalFocus
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focusRequester
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.TextRange
-import androidx.compose.ui.text.annotatedString
-import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.OffsetMap
-import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.text.input.TransformedText
-import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.*
+import androidx.compose.ui.text.input.*
 
 @Composable
 @ExperimentalFocus
@@ -102,13 +90,11 @@ fun TypeAhead() {
 				value.unselectedText == next.text && next.selection.length == 0 ->
 					next.copy(
 						text = result,
-						selection = TextRange(prefix.length - 1, result.length),
-						composition = null
+						selection = TextRange(prefix.length - 1, result.length)
 					)
 				else -> next.copy(
 					text = result,
-					selection = TextRange(prefix.length, result.length),
-					composition = null
+					selection = TextRange(prefix.length, result.length)
 				)
 			}
 		})

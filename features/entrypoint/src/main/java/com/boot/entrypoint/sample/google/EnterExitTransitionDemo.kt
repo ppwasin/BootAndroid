@@ -1,7 +1,6 @@
 package com.boot.entrypoint.sample.google
 
 import androidx.compose.animation.*
-import androidx.compose.foundation.Text
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumnFor
@@ -9,6 +8,7 @@ import androidx.compose.foundation.selection.selectable
 import androidx.compose.material.Button
 import androidx.compose.material.Checkbox
 import androidx.compose.material.RadioButton
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.Bottom
@@ -44,7 +44,7 @@ fun EnterExitTransitionDemo() {
 				Text("Top")
 			}
 			Row(Modifier.fillMaxWidth().weight(1f)) {
-				Stack(Modifier.fillMaxHeight().wrapContentWidth()) {
+				Box(Modifier.fillMaxHeight().wrapContentWidth()) {
 					Button(modifier = Modifier.align(TopEnd), onClick = {
 						alignment = TopStart
 						visible = !visible
@@ -65,7 +65,7 @@ fun EnterExitTransitionDemo() {
 					}
 				}
 				CenterMenu(selectedOption, oppositeAlignment.value, alignment, visible)
-				Stack(Modifier.fillMaxHeight().wrapContentWidth()) {
+				Box(Modifier.fillMaxHeight().wrapContentWidth()) {
 					Button(modifier = Modifier.align(TopStart), onClick = {
 						alignment = TopEnd
 						visible = !visible

@@ -2,7 +2,6 @@ plugins {
 	moduleApp()
 	kotlinAndroid()
 	kotlinKapt()
-	kotlinExt()
 	gradlePlay()
 //	id("class-loader-plugin")
 }

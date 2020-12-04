@@ -13,10 +13,10 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawShadow
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.layout
-import androidx.compose.ui.platform.DensityAmbient
+import androidx.compose.ui.platform.AmbientDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import dev.chrisbanes.accompanist.coil.CoilImage
@@ -37,9 +37,9 @@ fun AvatarList(
                 size = size
             ) {
                 CoilImage(
-                    user.imageUrlForSize(with(DensityAmbient.current) { 48.dp.toIntPx() }),
+                    user.imageUrlForSize(with(AmbientDensity.current) { 48.dp.toIntPx() }),
                     modifier = Modifier
-                        .drawShadow(5.dp, shape = CircleShape, clip = true)
+                        .shadow(5.dp, shape = CircleShape, clip = true)
                         .background(Color.White, CircleShape)
                         .padding(2.dp)
                         .clip(CircleShape)
@@ -69,10 +69,10 @@ fun StackButton(
         onClick = onClick,
         modifier = modifier
             .layoutOffset(x = if (!isStack) 0.dp else -overlap)
-            .drawShadow(5.dp, shape = CircleShape, clip = true)
+            .shadow(5.dp, shape = CircleShape, clip = true)
             .background(Color.White, CircleShape)
             .size(size),
-        icon = content
+        content = content
     )
 
 }

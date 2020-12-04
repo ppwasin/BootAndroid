@@ -5,6 +5,7 @@ plugins {
     DependenciesVersionChecker.plugin(this)
 }
 buildscript {
+    val kotlin_version by extra("1.4.20")
     repositories {
         google()
         jcenter()
@@ -15,6 +16,7 @@ buildscript {
         classpath(BuildPlugins.kotlinGradlePlugin)
         DependenciesVersionChecker.addClassPath(this)
         classpath(BuildPlugins.playPublisher)
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
     }
 }
 

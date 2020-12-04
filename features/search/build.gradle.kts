@@ -1,7 +1,6 @@
 plugins {
 	moduleDFM()
 	kotlinAndroid()
-	kotlinExt()
 	kotlinKapt()
 }
 

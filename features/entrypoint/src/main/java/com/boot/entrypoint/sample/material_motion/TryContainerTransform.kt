@@ -94,32 +94,32 @@ fun VerticalTransform(
 
 
 	val modifier = Modifier.clickable(
-		onClick = {
-			setToState(
-				VerticalTransformState.Big
-			)
-			Timer().schedule(3000) {
-				onStateChangeFinished?.invoke()
-			}
-		})
+        onClick = {
+            setToState(
+                VerticalTransformState.Big
+            )
+            Timer().schedule(3000) {
+                onStateChangeFinished?.invoke()
+            }
+        })
 //		.preferredHeight(IntrinsicSize.Max)
 
-	Layout(children = content, modifier = modifier) { measurables, constraints ->
-		layout(constraints.maxWidth, constraints.maxHeight) {
+    Layout(content = content, modifier = modifier) { measurables, constraints ->
+        layout(constraints.maxWidth, constraints.maxHeight) {
 //			val halfHeight = constraints.maxHeight / 2
 //			val childConstraints = constraints.copy(
 //				minHeight = minOf(constraints.minHeight, halfHeight),
 //				maxHeight = halfHeight
 //			)
 //			require(measurables.size == 2)
-			val child = measurables[0].measure(constraints)
-			Timber.v(
-				"""\n
+            val child = measurables[0].measure(constraints)
+            Timber.v(
+                """\n
 				- constraints.min(H,W): ${constraints.minHeight}, ${constraints.minWidth}
 				- constraints.max(H,W): ${constraints.maxHeight}, ${constraints.maxWidth}
 				- child(H,W): ${child.height}, ${child.width}
 			""".trimIndent()
-			)
+            )
 			child.place(0, 0)
 		}
 	}

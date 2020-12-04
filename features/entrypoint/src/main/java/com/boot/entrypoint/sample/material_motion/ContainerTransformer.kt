@@ -5,19 +5,18 @@ import androidx.compose.animation.core.AnimatedFloat
 import androidx.compose.animation.core.AnimationEndReason
 import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Box
 import androidx.compose.foundation.ScrollableColumn
-import androidx.compose.foundation.Text
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Stack
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawOpacity
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.layout
 import androidx.compose.ui.platform.ContextAmbient
@@ -157,13 +156,13 @@ fun <T> CrossFadeCopy(
 						}
 					}
 				)
-				Stack(Modifier.drawOpacity(opacity.value)) {
+				Box(Modifier.alpha(opacity.value)) {
 					children()
 				}
 			}
 		}
 	}
-	Stack(modifier) {
+	Box(modifier) {
 		state.invalidate = invalidate
 		state.items.fastForEach { (item, opacity) ->
 			key(item) {
@@ -219,7 +218,7 @@ fun ContainerTransformer(
 	val height = constraint?.maxHeight
 	if (!isExpand) {
 		Layout(
-			children = children
+			content = children
 		) { measureables, constraints ->
 			Timber.v("no parent")
 			if (constraint == null) setParentConstraint(constraints)
@@ -240,7 +239,7 @@ fun ContainerTransformer(
 			animatedFloat.animateTo(height.toFloat(), anim = tween())
 		}
 		Layout(
-			children = children
+			content = children
 		) { measureables, constraints ->
 			val placeables = measureables.map { it.measure(constraints) }
 			val maxWidth = placeables.fastMaxBy { it.width }?.width ?: 0

@@ -1,7 +1,6 @@
 plugins {
     moduleLib()
     kotlinAndroid()
-    kotlinExt()
     kotlinKapt()
 }
 android {

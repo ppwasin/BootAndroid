@@ -2,7 +2,6 @@ apply<plugin.JetpackComposePlugin>()
 plugins {
     moduleDFM()
     kotlinAndroid()
-    kotlinExt()
     kotlinKapt()
 }
 

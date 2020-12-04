@@ -48,13 +48,15 @@ private fun BaseExtension.setupBuildFeature() {
 //See more in https://foso.github.io/Jetpack-Compose-Playground/general/getting_started/
 private fun DependencyHandler.addComposeDependencies() {
     addImplementation("androidx.compose.animation:animation:${Versions.compose}")
+    addImplementation("androidx.compose.compiler:compiler:${Versions.compose}")
     addImplementation("androidx.compose.foundation:foundation:${Versions.compose}")
     addImplementation("androidx.compose.foundation:foundation-layout:${Versions.compose}")
     addImplementation("androidx.compose.material:material:${Versions.compose}")
     addImplementation("androidx.compose.material:material-icons-extended:${Versions.compose}")
     addImplementation("androidx.compose.runtime:runtime:${Versions.compose}")
     addImplementation("androidx.compose.ui:ui:${Versions.compose}")
-    addImplementation("androidx.ui:ui-tooling:${Versions.compose}")
+    addImplementation("androidx.compose.ui:ui-tooling:${Versions.compose}")
+    addImplementation("androidx.compose.ui:ui-test:${Versions.compose}")
     addImplementation("com.github.zsoltk:compose-router:${Versions.composeRouter}")
     addImplementation("dev.chrisbanes.accompanist:accompanist-coil:${Versions.composeAppComponist}")
     addImplementation("androidx.navigation:navigation-compose:${Versions.composeNav}")

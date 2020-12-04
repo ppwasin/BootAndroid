@@ -1,13 +1,13 @@
 package com.boot.movie
 
 //import androidx.compose.ui.util.lerp
-import androidx.compose.foundation.Text
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.rememberScrollableController
 import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.*
 import androidx.compose.ui.draw.clip
@@ -16,15 +16,15 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.gesture.scrollorientationlocking.Orientation
 import androidx.compose.ui.graphics.*
 import androidx.compose.ui.layout.*
-import androidx.compose.ui.platform.ConfigurationAmbient
-import androidx.compose.ui.platform.DensityAmbient
+import androidx.compose.ui.platform.AmbientConfiguration
+import androidx.compose.ui.platform.AmbientDensity
 import androidx.compose.ui.platform.InspectableValue
 import androidx.compose.ui.platform.ValueElement
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.ui.tooling.preview.Preview
 import dev.chrisbanes.accompanist.coil.CoilImage
 import kotlin.math.abs
 import kotlin.math.roundToInt
@@ -66,8 +66,8 @@ val posterAspectRatio = .674f
 @Preview
 @Composable
 fun Screen() {
-    val configuration = ConfigurationAmbient.current
-    val density = DensityAmbient.current
+    val configuration = AmbientConfiguration.current
+    val density = AmbientDensity.current
     val screenWidth = configuration.screenWidthDp.dp
     val screenWidthPx = with(density) { screenWidth.toPx() }
     val screenHeight = configuration.screenHeightDp.dp

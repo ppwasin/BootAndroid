@@ -1,9 +1,9 @@
 package com.boot.entrypoint.components
 
 import androidx.compose.foundation.Icon
-import androidx.compose.foundation.Text
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.Composable
