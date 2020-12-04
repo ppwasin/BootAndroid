@@ -7,7 +7,6 @@ object GradlePluginId {
 	const val dfm = "com.android.dynamic-feature"
 	const val androidLib = "com.android.library"
 	const val kotlinAndroid = "android"
-	const val kotlinExtension = "android.extensions"
 	const val kotlinKapt = "kapt"
 	const val gradlePlay = "com.github.triplet.play"
 }
@@ -18,7 +17,6 @@ fun PluginDependenciesSpec.moduleLib(): PluginDependencySpec = id(GradlePluginId
 
 fun PluginDependenciesSpec.kotlinAndroid() = kotlin(GradlePluginId.kotlinAndroid)
 fun PluginDependenciesSpec.kotlinKapt() = kotlin(GradlePluginId.kotlinKapt)
-fun PluginDependenciesSpec.kotlinExt() = kotlin(GradlePluginId.kotlinExtension)
 
 //https://medium.com/androiddevelopers/speed-up-your-android-dynamic-features-flow-testing-d63986cd716a
 fun PluginDependenciesSpec.gradlePlay(): PluginDependencySpec = id(GradlePluginId.gradlePlay)

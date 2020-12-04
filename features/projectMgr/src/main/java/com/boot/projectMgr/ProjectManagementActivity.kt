@@ -2,8 +2,10 @@ package com.boot.projectMgr
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.focus.ExperimentalFocus
 import androidx.compose.ui.platform.setContent
@@ -20,7 +22,11 @@ class ProjectManagementActivity : AppCompatActivity() {
             BootAndroidTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    TimelineScreen()
+                    Column {
+                        Text("sss")
+                        TimelineScreen()
+                    }
+
 //                                        CreateTaskScreen()
 //                    Playground()
                 }
