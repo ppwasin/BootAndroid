@@ -49,6 +49,6 @@ object Versions {
 	const val compose = "1.0.0-alpha08"
 	const val composeNav = "1.0.0-alpha03"
 	const val composePaging = "1.0.0-alpha03"
-	const val composeRouter = "0.19.0"
+	const val composeRouter = "0.23.0"
 	const val composeAppComponist = "0.4.0"
 }

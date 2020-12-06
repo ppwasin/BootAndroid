@@ -47,16 +47,4 @@ fun BaseExtension.setModuleVariableOnAllBuildTypes() {
                 resValue("string", moduleVariable, moduleName)
             }
     }
-//	buildTypes {
-//		buildTypes.forEach { buildType ->
-//			AppModule
-//				.getAllModuleProperties()
-//				.forEach { prop ->
-//					val moduleVariable = "AppModule_" + prop.name
-//					val moduleName = prop.getter.call().toString().removePrefix(":")
-//					buildType.buildConfigField("String", moduleVariable, moduleName)
-//					buildType.resValue("String", moduleVariable, moduleName)
-//				}
-//		}
-//	}
 }

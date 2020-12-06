@@ -32,7 +32,7 @@ dependencies {
     implementation(Libs.appCompat)
     implementation(Libs.googleMaterial)
     implementation(Libs.constraintLayout)
-    addImplementation(Libs.playCore)
+    implementation(Libs.playCore)
 
     implementation(Libs.navDynamicFeature)
     implementation(Libs.navFragment)

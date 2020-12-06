@@ -24,7 +24,7 @@ dependencies {
     implementation(Libs.coroutineAndroid)
     implementation(Libs.appCompat)
     implementation(Libs.googleMaterial)
-    addImplementation(Libs.playCore)
+    implementation(Libs.playCore)
 //    addComposeDeps()
 
 }

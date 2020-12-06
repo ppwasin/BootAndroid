@@ -1,8 +1,9 @@
 package plugin
 
 import Versions
-import addImplementation
 import com.android.build.gradle.BaseExtension
+import ext.addAndroidTestImplementation
+import ext.addImplementation
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -26,7 +27,7 @@ class JetpackComposePlugin : Plugin<Project> {
     }
 }
 
-private fun KotlinCompile.setupCompiler(){
+private fun KotlinCompile.setupCompiler() {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
         freeCompilerArgs = freeCompilerArgs + listOf(
@@ -56,7 +57,8 @@ private fun DependencyHandler.addComposeDependencies() {
     addImplementation("androidx.compose.runtime:runtime:${Versions.compose}")
     addImplementation("androidx.compose.ui:ui:${Versions.compose}")
     addImplementation("androidx.compose.ui:ui-tooling:${Versions.compose}")
-    addImplementation("androidx.compose.ui:ui-test:${Versions.compose}")
+    addImplementation("androidx.compose.ui:ui-util:${Versions.compose}")
+    addAndroidTestImplementation("androidx.compose.ui:ui-test:${Versions.compose}")
     addImplementation("com.github.zsoltk:compose-router:${Versions.composeRouter}")
     addImplementation("dev.chrisbanes.accompanist:accompanist-coil:${Versions.composeAppComponist}")
     addImplementation("androidx.navigation:navigation-compose:${Versions.composeNav}")

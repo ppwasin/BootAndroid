@@ -1,3 +1,4 @@
+package ext
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
 fun DependencyHandler.addImplementation(notation: String) {

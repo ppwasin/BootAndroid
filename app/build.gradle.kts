@@ -53,9 +53,9 @@ dependencies {
 	implementation(Libs.coroutineReactive)
 
 	implementation(Libs.timber)
-	addImplementation(Libs.room)
-	addImplementation(Libs.roomKtx)
-	addKapt(Libs.roomKapt)
+	implementation(Libs.room)
+	implementation(Libs.roomKtx)
+	kapt(Libs.roomKapt)
 	addDate()
 	addDagger()
 	addNetwork()
