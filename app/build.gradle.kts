@@ -41,7 +41,7 @@ dependencies {
 	implementation(project(AppModule.CoreDynamicFeature.buildGradlePath))
 	implementation(project(AppModule.CoreUi.buildGradlePath))
 	testImplementation(Libs.jUnit)
-	androidTestImplementation(Libs.androidTextExt)
+	androidTestImplementation(Libs.androidTest)
 	androidTestImplementation(Libs.expresso)
 	implementation(Libs.kotlinStd)
 	implementation(Libs.playCore)

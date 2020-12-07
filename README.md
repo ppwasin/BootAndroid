@@ -46,3 +46,20 @@ This Repository intent to be the playground for anything in the Android World.
 
 ## Tools
 - Story board: https://github.com/airbnb/Showkase
+
+## Directory Strategy (InProgress)
+- Playground use playground folder as the root. 
+    - Each modules in this folder should act ast the self runnable Application or Pure kotlin library.
+- Unify Application
+    - Separate application by features
+    - To see how to utilize DFM, Modularization and build time performance 
+    
+Unify Application has two root folder for traditional and compose
+- Traditional: The objective of this unify app is should be play around the motion layout, MDC-Motion
+    - Use root directory name traditional
+    - App at the traditional/ComposeApp
+    - Features at the traditional/features 
+- Compose: Play around compose
+    - Use root directory name Compose
+    - App at the compose/ComposeApp
+    - Features at the compose/features
