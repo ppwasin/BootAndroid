@@ -17,7 +17,7 @@ class EntryFragment : Fragment() {
 	override fun onCreateView(
 		inflater: LayoutInflater, container: ViewGroup?,
 		savedInstanceState: Bundle?
-	): View? {
+	): View {
 		// Inflate the layout for this fragment
 		val fragmentView = inflater.inflate(R.layout.fragment_empty, container, false)
 
