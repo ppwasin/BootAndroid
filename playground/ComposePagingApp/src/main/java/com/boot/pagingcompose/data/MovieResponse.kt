@@ -1,4 +1,6 @@
-package com.boot.pagingcompose
+package com.boot.pagingcompose.data
+
+import com.boot.pagingcompose.domain.Movie
 
 data class MovieListResponse(
     val totalPages: Int,

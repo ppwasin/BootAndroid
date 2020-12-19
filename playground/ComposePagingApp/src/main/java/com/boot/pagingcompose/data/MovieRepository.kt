@@ -1,6 +1,4 @@
-package com.boot.pagingcompose
-
-import com.boot.pagingcompose.fake.FakeMovieBackend
+package com.boot.pagingcompose.data
 
 class MovieRepository {
     private val backend: MovieBackend = FakeMovieBackend()

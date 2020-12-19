@@ -1,4 +1,4 @@
-package com.boot.pagingcompose
+package com.boot.pagingcompose.view
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -8,9 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.res.loadImageResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.boot.pagingcompose.R
+import com.boot.pagingcompose.domain.Movie
 import dev.chrisbanes.accompanist.coil.CoilImage
 
 @Composable
@@ -24,7 +26,6 @@ fun MovieItem(movie: Movie) {
     ) {
         MovieTitle(
             movie.title ?: "NO",
-            modifier = Modifier.weight(1f)
         )
         MovieImage(
             movie.imgURL,
@@ -52,7 +53,13 @@ fun MovieImage(
                 Text("loading")
             },
             error = {
-                Image(vectorResource(id = R.drawable.ic_error), alpha = 0.45f)
+                val deferredImage = loadImageResource(
+                    id = R.drawable.ic_error,
+                )
+
+                deferredImage.resource.resource?.let {
+                    Image(it, alpha = 0.45f)
+                }
             }
         )
     }

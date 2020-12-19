@@ -1,4 +1,4 @@
-package com.boot.pagingcompose
+package com.boot.pagingcompose.domain
 
 data class Movie(
     val id: Int,

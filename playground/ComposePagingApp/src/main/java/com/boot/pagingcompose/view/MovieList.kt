@@ -1,4 +1,4 @@
-package com.boot.pagingcompose
+package com.boot.pagingcompose.view
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -15,6 +15,7 @@ import androidx.paging.PagingData
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
+import com.boot.pagingcompose.domain.Movie
 import kotlinx.coroutines.flow.Flow
 
 @Composable
@@ -29,16 +30,17 @@ fun MovieList(movies: Flow<PagingData<Movie>>) {
                         .wrapContentWidth(Alignment.CenterHorizontally)
                 )
             }
-        }
-        items(lazyPagingItems) { movie ->
-            when {
-                movie != null -> MovieItem(movie = movie)
-                else -> Text(
-                    modifier = Modifier.height(128.dp).fillMaxWidth(),
-                    text = "Show Place holder"
-                )
-            }
+        } else {
+            items(lazyPagingItems) { movie ->
+                when {
+                    movie != null -> MovieItem(movie = movie)
+                    else -> Text(
+                        modifier = Modifier.height(128.dp).fillMaxWidth(),
+                        text = "Show Place holder"
+                    )
+                }
 
+            }
         }
         if (lazyPagingItems.loadState.append == LoadState.Loading) {
             item {
