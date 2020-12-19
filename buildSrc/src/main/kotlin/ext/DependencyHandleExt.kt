@@ -2,30 +2,30 @@ package ext
 import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
-fun DependencyHandler.addImplementation(notation: String) {
+fun DependencyHandler.implementation(notation: String) {
     add("implementation", notation)
 }
 
-fun DependencyHandler.addAndroidTestImplementation(notation: String) {
+fun DependencyHandler.androidTestImplementation(notation: String) {
     add("androidTestImplementation", notation)
 }
 
-fun DependencyHandler.addTestImplementation(notation: String) {
+fun DependencyHandler.testImplementation(notation: String) {
     add("testImplementation", notation)
 }
 
-fun DependencyHandler.addTestImplementation(notation: Dependency) {
+fun DependencyHandler.testImplementation(notation: Dependency) {
     add("testImplementation", notation)
 }
 
-fun DependencyHandler.addKapt(notation: String) {
+fun DependencyHandler.kapt(notation: String) {
     add("kapt", notation)
 }
 
-fun DependencyHandler.addKaptAndroidTest(notation: String) {
+fun DependencyHandler.kaptAndroidTest(notation: String) {
     add("kaptAndroidTest", notation)
 }
 
-fun DependencyHandler.addCompileOnly(notation: String) {
-	add("compileOnly", notation)
+fun DependencyHandler.compileOnly(notation: String) {
+    add("compileOnly", notation)
 }

@@ -1,6 +1,6 @@
 package plugin
 
-import ext.addTestImplementation
+import ext.testImplementation
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.tasks.testing.Test
@@ -17,8 +17,8 @@ class Junit5Plugin : Plugin<Project> {
         }
 
         project.dependencies.run {
-            addTestImplementation(platform("org.junit:junit-bom:$version"))
-            addTestImplementation("org.junit.jupiter:junit-jupiter")
+            testImplementation(platform("org.junit:junit-bom:$version"))
+            testImplementation("org.junit.jupiter:junit-jupiter")
         }
     }
 }

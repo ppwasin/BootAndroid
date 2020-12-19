@@ -99,43 +99,43 @@ fun DefaultConfig.addRoomConfig(projectDir: File) {
 }
 
 fun DependencyHandlerScope.addsRxDependencies() {
-    addImplementation(Libs.rxJava)
-    addImplementation(Libs.rxAndroid)
+    implementation(Libs.rxJava)
+    implementation(Libs.rxAndroid)
 }
 
 fun DependencyHandlerScope.addDagger() {
-    addImplementation("com.google.dagger:dagger-android-support:${Versions.dagger}")
-    addKapt("com.google.dagger:dagger-compiler:${Versions.dagger}")
-    addKapt("com.google.dagger:dagger-android-processor:${Versions.dagger}")
-    addCompileOnly("com.squareup.inject:assisted-inject-annotations-dagger2:${Versions.daggerAssist}")
-    addKapt("com.squareup.inject:assisted-inject-processor-dagger2:${Versions.daggerAssist}")
+    implementation("com.google.dagger:dagger-android-support:${Versions.dagger}")
+    kapt("com.google.dagger:dagger-compiler:${Versions.dagger}")
+    kapt("com.google.dagger:dagger-android-processor:${Versions.dagger}")
+    compileOnly("com.squareup.inject:assisted-inject-annotations-dagger2:${Versions.daggerAssist}")
+    kapt("com.squareup.inject:assisted-inject-processor-dagger2:${Versions.daggerAssist}")
 
-    addAndroidTestImplementation("com.google.dagger:dagger-android-support:${Versions.dagger}")
-    addKaptAndroidTest("com.google.dagger:dagger-compiler:${Versions.dagger}")
-    addKaptAndroidTest("com.google.dagger:dagger-android-processor:${Versions.dagger}")
+    androidTestImplementation("com.google.dagger:dagger-android-support:${Versions.dagger}")
+    kaptAndroidTest("com.google.dagger:dagger-compiler:${Versions.dagger}")
+    kaptAndroidTest("com.google.dagger:dagger-android-processor:${Versions.dagger}")
 }
 
 fun DependencyHandlerScope.addNetwork() {
-    addImplementation("com.squareup.retrofit2:retrofit:${Versions.retrofit}")
-    addImplementation("com.squareup.retrofit2:converter-moshi:${Versions.retrofit}")
-    addImplementation("com.squareup.moshi:moshi:${Versions.moshi}")
-    addImplementation("com.squareup.moshi:moshi-kotlin:${Versions.moshi}")
-    addImplementation("com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}")
-    addImplementation("com.facebook.stetho:stetho:${Versions.stetho}")
-    addImplementation("com.facebook.stetho:stetho-okhttp3:${Versions.stetho}")
+    implementation("com.squareup.retrofit2:retrofit:${Versions.retrofit}")
+    implementation("com.squareup.retrofit2:converter-moshi:${Versions.retrofit}")
+    implementation("com.squareup.moshi:moshi:${Versions.moshi}")
+    implementation("com.squareup.moshi:moshi-kotlin:${Versions.moshi}")
+    implementation("com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}")
+    implementation("com.facebook.stetho:stetho:${Versions.stetho}")
+    implementation("com.facebook.stetho:stetho-okhttp3:${Versions.stetho}")
 }
 
 fun DependencyHandlerScope.addStetho() {
-    addImplementation(Libs.stetho)
-    addImplementation(Libs.stethoHttp)
+    implementation(Libs.stetho)
+    implementation(Libs.stethoHttp)
 }
 
 fun DependencyHandlerScope.addTimber() {
-    addImplementation(Libs.timber)
+    implementation(Libs.timber)
 }
 
 fun DependencyHandlerScope.addDate() {
-    addImplementation(Libs.jakeThreetenabp)
+    implementation(Libs.jakeThreetenabp)
     //	testImplementation('org.threeten:threetenbp:1.2.1') {
     //		exclude module: 'com.jakewharton.threetenabp:threetenabp:1.2.1'
     //	}
@@ -145,28 +145,28 @@ fun DependencyHandlerScope.addDate() {
 }
 
 fun DependencyHandlerScope.addCoreFeatureDeps() {
-    addImplementation(Libs.kotlinStd)
-    addImplementation(Libs.appCompat)
-    addImplementation(Libs.constraintLayout)
-    addImplementation(Libs.recyclerView)
-    addImplementation(Libs.viewModel)
-    addImplementation(Libs.lifecycle)
-    addImplementation(Libs.liveData)
-    addImplementation(Libs.lifecycleProcess)
-    addImplementation(Libs.lifecycleCommon)
+    implementation(Libs.kotlinStd)
+    implementation(Libs.appCompat)
+    implementation(Libs.constraintLayout)
+    implementation(Libs.recyclerView)
+    implementation(Libs.viewModel)
+    implementation(Libs.lifecycle)
+    implementation(Libs.liveData)
+    implementation(Libs.lifecycleProcess)
+    implementation(Libs.lifecycleCommon)
 
-    addImplementation(Libs.lifecycleReactive)
-    addImplementation(Libs.paging)
-    addImplementation(Libs.room)
-    addImplementation(Libs.roomKtx)
-    addKapt(Libs.roomKapt)
-    addImplementation(Libs.fragmentKtx)
+    implementation(Libs.lifecycleReactive)
+    implementation(Libs.paging)
+    implementation(Libs.room)
+    implementation(Libs.roomKtx)
+    kapt(Libs.roomKapt)
+    implementation(Libs.fragmentKtx)
 
-    addImplementation(Libs.coroutineCore)
-    addImplementation(Libs.coroutineAndroid)
+    implementation(Libs.coroutineCore)
+    implementation(Libs.coroutineAndroid)
 
-    addImplementation(Libs.playCore)
-    addCompileOnly(Libs.autoService)
-    addKapt(Libs.autoServiceKapt)
+    implementation(Libs.playCore)
+    compileOnly(Libs.autoService)
+    kapt(Libs.autoServiceKapt)
     addDagger()
 }

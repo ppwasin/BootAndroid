@@ -2,8 +2,8 @@ package plugin
 
 import Versions
 import com.android.build.gradle.BaseExtension
-import ext.addAndroidTestImplementation
-import ext.addImplementation
+import ext.androidTestImplementation
+import ext.implementation
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -48,19 +48,19 @@ private fun BaseExtension.setupBuildFeature() {
 
 //See more in https://foso.github.io/Jetpack-Compose-Playground/general/getting_started/
 private fun DependencyHandler.addComposeDependencies() {
-    addImplementation("androidx.compose.animation:animation:${Versions.compose}")
-    addImplementation("androidx.compose.compiler:compiler:${Versions.compose}")
-    addImplementation("androidx.compose.foundation:foundation:${Versions.compose}")
-    addImplementation("androidx.compose.foundation:foundation-layout:${Versions.compose}")
-    addImplementation("androidx.compose.material:material:${Versions.compose}")
-    addImplementation("androidx.compose.material:material-icons-extended:${Versions.compose}")
-    addImplementation("androidx.compose.runtime:runtime:${Versions.compose}")
-    addImplementation("androidx.compose.ui:ui:${Versions.compose}")
-    addImplementation("androidx.compose.ui:ui-tooling:${Versions.compose}")
-    addImplementation("androidx.compose.ui:ui-util:${Versions.compose}")
-    addAndroidTestImplementation("androidx.compose.ui:ui-test:${Versions.compose}")
-    addImplementation("com.github.zsoltk:compose-router:${Versions.composeRouter}")
-    addImplementation("dev.chrisbanes.accompanist:accompanist-coil:${Versions.composeAppComponist}")
-    addImplementation("androidx.navigation:navigation-compose:${Versions.composeNav}")
-    addImplementation("androidx.paging:paging-compose:${Versions.composePaging}")
+    implementation("androidx.compose.animation:animation:${Versions.compose}")
+    implementation("androidx.compose.compiler:compiler:${Versions.compose}")
+    implementation("androidx.compose.foundation:foundation:${Versions.compose}")
+    implementation("androidx.compose.foundation:foundation-layout:${Versions.compose}")
+    implementation("androidx.compose.material:material:${Versions.compose}")
+    implementation("androidx.compose.material:material-icons-extended:${Versions.compose}")
+    implementation("androidx.compose.runtime:runtime:${Versions.compose}")
+    implementation("androidx.compose.ui:ui:${Versions.compose}")
+    implementation("androidx.compose.ui:ui-tooling:${Versions.compose}")
+    implementation("androidx.compose.ui:ui-util:${Versions.compose}")
+    androidTestImplementation("androidx.compose.ui:ui-test:${Versions.compose}")
+    implementation("com.github.zsoltk:compose-router:${Versions.composeRouter}")
+    implementation("dev.chrisbanes.accompanist:accompanist-coil:${Versions.composeAppComponist}")
+    implementation("androidx.navigation:navigation-compose:${Versions.composeNav}")
+    implementation("androidx.paging:paging-compose:${Versions.composePaging}")
 }
