@@ -15,6 +15,7 @@ buildscript {
         classpath(BuildPlugins.kotlinGradlePlugin)
         DependenciesVersionChecker.addClassPath(this)
         classpath(BuildPlugins.playPublisher)
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.21")
     }
 }
 
