@@ -62,4 +62,3 @@ fun getSingleModules(path: String? = null): Sequence<String> {
         }
         .map { prefix(it.name) }
 }
-include(":playground:ParallaxApp")
