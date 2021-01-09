@@ -103,3 +103,9 @@ object Libs {
 	const val expresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
 
 }
+
+object Arrowkt {
+	private const val version = "0.11.0"
+	const val core = "io.arrow-kt:arrow-core:$version"
+	const val syntax = "io.arrow-kt:arrow-syntax:$version"
+}

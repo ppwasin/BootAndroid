@@ -11,4 +11,7 @@ java {
 
 dependencies {
     implementation(Libs.kotlinStd)
+
+    implementation(Arrowkt.core)
+    implementation(Arrowkt.syntax)
 }
