@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.boot.entrypoint.components.AppScaffold
+import com.boot.compose.bottombar.components.AppScaffold
 import com.github.zsoltk.compose.router.Router
 
 data class NestedItem(val title: String, val author: String) {

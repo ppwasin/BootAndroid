@@ -30,7 +30,7 @@ rootProject.buildFileName = "build.gradle.kts"
 //	.filter { shouldInclude(include, it) }
 //	.map { ":$it" }
 //include(*modules.toTypedArray())
-val allModules = getModules(null, "base", "features", "playground")
+val allModules = getModules(null, "base", "features", "playground", "core")
     .filter { shouldInclude(include, it) }
     .toList()
 

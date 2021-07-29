@@ -109,3 +109,9 @@ object Arrowkt {
 	const val core = "io.arrow-kt:arrow-core:$version"
 	const val syntax = "io.arrow-kt:arrow-syntax:$version"
 }
+
+object Paging3 {
+	private const val version = "3.0.0-alpha12"
+	const val runtime = "androidx.paging:paging-runtime:$version"
+	const val common = "androidx.paging:paging-common:$version" // alternatively - without Android dependencies for test
+}

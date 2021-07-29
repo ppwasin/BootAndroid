@@ -1,7 +1,7 @@
 object Versions {
 
-	const val kotlin = "1.4.21"
-	const val androidGradle = "7.0.0-alpha04"
+	const val kotlin = "1.4.21-2"
+	const val androidGradle = "7.0.0-alpha05"
 	const val googleService = "4.3.3"
 	const val fabric = "1.31.0"
 
@@ -46,9 +46,9 @@ object Versions {
 	//Utils
 	const val bottomNavigator = "1.6"
 
-	const val compose = "1.0.0-alpha09"
-	const val composeNav = "1.0.0-alpha04"
-	const val composePaging = "1.0.0-alpha04"
+	const val compose = "1.0.0-alpha11"
+	const val composeNav = "1.0.0-alpha06"
+	const val composePaging = "1.0.0-alpha06"
 	const val composeRouter = "0.23.0"
-	const val composeAppComponist = "0.4.1"
+	const val composeAppComponist = "0.4.2"
 }

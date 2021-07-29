@@ -1,4 +1,4 @@
-package com.boot.entrypoint.components
+package com.boot.compose.bottombar.components
 
 import androidx.compose.foundation.Icon
 import androidx.compose.material.IconButton

@@ -2,6 +2,12 @@ import com.android.build.gradle.BaseExtension
 
 private const val FEATURE_PREFIX = ":features"
 
+interface HasGradlePath {
+    val prefix: String
+    val actualName: String
+    fun getProjectPath() = "$prefix:$actualName"
+}
+
 enum class AppModule(val prefix: String, val actualName: String) {
     CoreDynamicFeature(prefix = ":", actualName = "dynamicFeature"),
     CoreUi(prefix = ":", actualName = "coreUi"),
@@ -35,6 +41,16 @@ enum class AppModule(val prefix: String, val actualName: String) {
             .filter { it.startsWith(FEATURE_PREFIX) }
             .toMutableSet()
     }
+
+    enum class Core : HasGradlePath {
+
+        Network {
+            override val actualName: String = "network"
+        };
+
+        override val prefix: String = ":core"
+    }
+
 }
 
 fun BaseExtension.setModuleVariableOnAllBuildTypes() {

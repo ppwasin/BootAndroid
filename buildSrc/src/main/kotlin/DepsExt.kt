@@ -170,3 +170,8 @@ fun DependencyHandlerScope.addCoreFeatureDeps() {
     kapt(Libs.autoServiceKapt)
     addDagger()
 }
+
+fun Paging3.setup(scope: DependencyHandlerScope) {
+    scope.implementation(runtime)
+    scope.testImplementation(common)
+}

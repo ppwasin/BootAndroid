@@ -1,4 +1,4 @@
-package com.boot.compose.bottombar
+package com.boot.compose.bottombar.ext
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue

@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
+import com.boot.compose.bottombar.ext.currentRoute
 import com.boot.compose.bottombar.screen.CountScreen
 import com.boot.compose.bottombar.ui.typography
 import timber.log.Timber
